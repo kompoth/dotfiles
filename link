@@ -1,0 +1,60 @@
+#!/bin/bash
+
+curdir=`pwd`
+TILDA=".Xresources .xinitrc .bashrc .vimrc .icons"
+CONFIG="i3 i3blocks zathura bspwm sxhkd ncmpcpp mopidy systemd"
+LOCAL="bin"
+
+case $1 in
+--relink|-rl) # remove existing files and create new links
+  for f in $TILDA ; do
+    [ -e ~/$f ] && rm -r ~/$f
+    ln -s $curdir/$f ~/$f
+  done
+
+  for f in $CONFIG ; do
+    [ -e ~/.config/$f ] && rm -r ~/.config/$f
+    ln -s $curdir/$f ~/.config/$f
+  done
+
+  for f in $LOCAL ; do
+    [ -e ~/.local/$f ] && rm -r ~/.local/$f
+    ln -s $curdir/$f ~/.local/$f
+  done
+;;
+
+--clean|-c) # remove existing files
+  for f in $TILDA ; do
+    [ -e ~/$f ] && rm -r ~/$f
+  done
+
+  for f in $CONFIG ; do
+    [ -e ~/.config/$f ] && rm -r ~/.config/$f
+  done
+ 
+  for f in $LOCAL ; do
+    [ -e ~/.local/$f ] && rm -r ~/.local/$f
+  done
+;;
+
+--vim|-v) # install vim plugins
+  mkdir -p .vim/autoload
+  wget -i autoload.urls -P ~/.vim/autoload
+;;
+
+--third|-th) # install additional stuff
+  [ ! -d "~/.urxvt/ext" ] && mkdir -p ~/.urxvt/ext 
+  wget https://raw.githubusercontent.com/majutsushi/urxvt-font-size/master/font-size -P ~/.urxvt/ext
+;;
+   
+*)
+  echo -e "$0 usage:"
+  echo -e "\t $0 --relink, -rl    remove existing dotfiles and create new links"
+  echo -e "\t $0 --vim, -v        install vim plugins"
+  echo -e "\t $0 --third, -th     install additional scripts"
+  echo -e "\t $0 --clean, -c      remove existing dotfiles"
+  echo -e ""
+  ;;
+
+esac
+
