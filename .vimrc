@@ -51,6 +51,12 @@ if empty(glob('~/.vim/autoload/pathogen.vim'))
 endif
 execute pathogen#infect()
 
+" Vimwiki autoinstall
+if empty(glob('~/.vim/bundle/vimwiki'))
+  silent !mkdir -p ~/.vim/bundle
+  silent !git clone https://github.com/vimwiki/vimwiki.git ~/.vim/bundle/vimwiki
+endif
+
 " Vimwiki (install it first)
 let wikilist = {}
 let wikilist.path = '~/creative/wiki/vim'
