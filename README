@@ -1,0 +1,7 @@
+dotfiles
+========
+
+My configuration files for Linux.
+
+Setup:
+  ./link -i
