@@ -1,0 +1,56 @@
+#!/usr/bin/perl
+# Script warns user about low battery charge.
+# It uses umess X pop-up program to create warning and retrieves battery
+# status via acpi utility.
+# Edit following capitalized variables to suit your preferences.
+# Put this script into your autostart, e.g. 'esec_always' in i3wm config.
+# Author: Vasily Negrebetskiy
+
+
+use strict;
+use warnings;
+
+my $BATNUM = 0;
+my $INTERVAL = 5;  # min, interval between checks
+my $CRITLVL = 15;  # %, alarming battery charge
+my $FONT = "Iosevka:size=24";  # xft notation
+my $FGCOL = "white";
+my $BGCOL = "red";
+
+my $acpi;
+my $charge;
+my $status;
+my $messaged = 0;
+my $umesscmd = "umess -f \"$FONT\" -B \"$BGCOL\" -F \"$FGCOL\" -d";
+my $warnloop = "while (true); do printf \"Critical battery level: %d%%%%\"; sleep 1; done";
+
+sub sys_oneline 
+{
+  die "Pass one cmd string." unless (scalar(@_) == 1);
+  open(my $fh, $_[0] . ' |') or die $1;
+  my $res = <$fh>; 
+  close $fh;
+  return $res;
+}
+
+while (1)
+{
+  # read the first line of the "acpi" command output
+  open (ACPI, "acpi -b | grep 'Battery $BATNUM' |") or die;
+  $acpi = <ACPI>;
+  close(ACPI);
+  
+  # fail on unexpected output
+  if ($acpi !~ /\w+: (\w+), (\d+)%/) {
+  	die "$acpi\n";
+  }
+  
+  $status = $1;
+  $charge = $2;
+  if ($status eq "Discharging" and $charge < $CRITLVL) 
+  {
+    sys_oneline(sprintf $warnloop . " | " . $umesscmd , $charge);
+  }
+
+  sleep($INTERVAL * 60);
+}
