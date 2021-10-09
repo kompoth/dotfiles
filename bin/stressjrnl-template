@@ -1,0 +1,24 @@
+#!/usr/bin/python3
+import sys
+import datetime
+
+template = """= {date} =
+
+== <стресс> ==
+
+  === Cобытие ===
+
+  === Чувство ===
+
+  === Действие ===
+
+  === Ощущения ===
+
+  === Мысли ===
+  - 10-15 штук 
+
+  === Вывод ===
+"""
+
+date = datetime.date.today()
+print(template.format(date=date))

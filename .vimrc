@@ -58,13 +58,24 @@ if empty(glob('~/.vim/bundle/vimwiki'))
 endif
 
 " Vimwiki (install it first)
-let wikilist = {}
-let wikilist.path = '~/creative/wiki/vim'
-let wikilist.path_html = '~/creative/wiki/html'
-let wikilist.template_path = '~/creative/wiki/templates'
-let wikilist.template_default = 'default'
-let wikilist.template_ext = '.html'
-let g:vimwiki_list = [wikilist]
+let worlds = {}
+let worlds.path = '~/worlds/wiki/vim'
+let worlds.path_html = '~/worlds/wiki/html'
+let worlds.template_path = '~/worlds/wiki/templates'
+let worlds.template_default = 'default'
+let worlds.template_ext = '.html'
+
+let mywiki = {}
+let mywiki.path = '~/mywiki/vim'
+let mywiki.path_html = '~/mywiki/html'
+let mywiki.diary_header = 'Журнал стресса'
+
+let g:vimwiki_list = [worlds, mywiki]
+let g:vimwiki_diary_months = {
+    \1: 'Январь', 2: 'Февраль', 3: 'Март', 4: 'Апрель', 5: 'Май',
+    \6: 'Июнь', 7: 'Июль', 8: 'Август', 9: 'Сентябрь', 10: 'Октябрь',
+    \11: 'Ноябрь', 12: 'Декабрь'
+  \} 
 
 " Special rules for wiki files
 autocmd BufEnter *.wiki setlocal wrap linebreak
@@ -72,3 +83,4 @@ autocmd BufEnter *.wiki imap -- —
 autocmd BufEnter *.wiki set nocompatible
 autocmd BufEnter *.wiki filetype plugin on
 autocmd BufEnter *.wiki syntax on
+au BufNewFile ~/mywiki/vim/diary/*.wiki :silent 0r !~/.local/bin/stressjrnl-template '%'

@@ -130,4 +130,9 @@ fi
 # Map Ctrl-S to smth usefull other than XOFF (interrupt data flow).
 stty -ixon
 
-alias mycal="ncal -M -b -3" 
+alias mycal="ncal -M -b -3"
+
+if [ -d ~/.texmf ] ; then
+    export TEXMFHOME=~/.texmf
+fi
+
