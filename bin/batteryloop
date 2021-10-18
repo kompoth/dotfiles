@@ -12,7 +12,7 @@ use warnings;
 
 my $BATNUM = 0;
 my $INTERVAL = 5;  # min, interval between checks
-my $CRITLVL = 15;  # %, alarming battery charge
+my $CRITLVL = 20;  # %, alarming battery charge
 my $FONT = "Iosevka:size=24";  # xft notation
 my $FGCOL = "white";
 my $BGCOL = "red";
