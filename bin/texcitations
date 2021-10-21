@@ -1,4 +1,6 @@
 #!/usr/bin/perl
+# Finds all citations in .tex file and prints them
+
 use strict;
 use warnings;
 

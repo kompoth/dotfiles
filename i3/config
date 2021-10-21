@@ -84,6 +84,10 @@ bindsym $mod+v split v
 bindsym $mod+t layout tabbed
 bindsym $mod+e layout toggle split
 
+# Make the currently focused window a scratchpad
+bindsym $mod+Shift+n move scratchpad
+# Show scratchpad window
+bindsym $mod+n scratchpad show
 
 
 ####################
@@ -164,12 +168,6 @@ bindsym XF86AudioMute exec --no-startup-id amixer set Master toggle && pkill -RT
 # Scrot screen capture
 bindsym --release $mod+Print exec --no-startup-id scrot -s '%Y-%m-%d-%T_$wx$h.png' -e 'mv $f ~/Screenshots/'
 bindsym $mod+Control+Print exec --no-startup-id scrot '%Y-%m-%d-%T_$wx$h.png' -e 'mv $f ~/Screenshots/'
-
-# Make the currently focused window a scratchpad
-bindsym $mod+Shift+n move scratchpad
-# Show scratchpad window
-bindsym $mod+n scratchpad show
-
 
 
 ###############

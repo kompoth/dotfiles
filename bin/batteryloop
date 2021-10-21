@@ -21,36 +21,30 @@ my $acpi;
 my $charge;
 my $status;
 my $messaged = 0;
-my $umesscmd = "umess -f \"$FONT\" -B \"$BGCOL\" -F \"$FGCOL\" -d";
-my $warnloop = "while (true); do printf \"Critical battery level: %d%%%%\"; sleep 1; done";
+my $acpicmd = "acpi -b | grep 'Battery $BATNUM' |";
+my $warnloop = "while (true); do " . 
+                "printf \"Critical battery level: %d%%%%\"; " . 
+                "sleep 1; done";
+my $umesscmd = "umess -f \"$FONT\" -B \"$BGCOL\" -F \"$FGCOL\" -d |";
+my $exitcode;
 
-sub sys_oneline 
-{
-  die "Pass one cmd string." unless (scalar(@_) == 1);
-  open(my $fh, $_[0] . ' |') or die $1;
-  my $res = <$fh>; 
-  close $fh;
-  return $res;
-}
-
-while (1)
-{
+while (1) {
   # read the first line of the "acpi" command output
-  open (ACPI, "acpi -b | grep 'Battery $BATNUM' |") or die;
+  open(ACPI, $acpicmd) or die("Failed to get battery info: $!");
   $acpi = <ACPI>;
   close(ACPI);
   
-  # fail on unexpected output
-  if ($acpi !~ /\w+: (\w+), (\d+)%/) {
-  	die "$acpi\n";
-  }
-  
+  # die on unexpected battery info
+  die "Unexpected battery info: $acpi" unless ($acpi =~ /\w+: (\w+), (\d+)%/);
   $status = $1;
   $charge = $2;
-  if ($status eq "Discharging" and $charge < $CRITLVL) 
-  {
-    sys_oneline(sprintf $warnloop . " | " . $umesscmd , $charge);
+  
+  if ($status eq "Discharging" and $charge < $CRITLVL) {
+    my $cmd = sprintf $warnloop . " | " . $umesscmd , $charge;
+    open(WARNLOOP, $cmd) or die("Warnloop error: $!");
+    $exitcode = <WARNLOOP>;
+    close(WARNLOOP);
   }
-
+  
   sleep($INTERVAL * 60);
 }
