@@ -1,10 +1,10 @@
 #####################
 ##   Starting WM   ##
 #####################
-exec_always --no-startup-id "pkill batteryloop"
+exec_always --no-startup-id "pkill umess_batteryloop"
 exec_always --no-startup-id "xrdb -merge ~/.Xresources"
 exec_always --no-startup-id "setxkbmap -layout us,ru -model pc105 -option grp:win_space_toggle"
-exec_always --no-startup-id "batteryloop"
+exec_always --no-startup-id "umess_batteryloop"
 
 ####################
 ##   Appearance   ##
