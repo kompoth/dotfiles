@@ -3,7 +3,7 @@
 CURDIR=`pwd`
 
 TILDA=".Xresources .xinitrc .bashrc .vimrc .icons"
-CONFIG="i3 i3blocks zathura ncmpcpp mopidy"
+CONFIG="i3 i3blocks zathura ncmpcpp mopidy bspwm sxhkd"
 LOCAL="bin"
 
 printhelp()

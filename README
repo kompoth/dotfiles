@@ -3,7 +3,6 @@ dotfiles
 
 My configuration files for Linux.
 
-
 Installation
 ------------
   ./install -i

@@ -1,0 +1,2 @@
+#!/bin/bash
+xrandr --query | perl -ne '/(.+) connected/ && $1 ne $main && print "$1\n"'

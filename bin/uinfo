@@ -1,0 +1,23 @@
+#!/bin/bash
+
+FONT="Iosevka:size=16"
+MON=$(bspc query -M -d focused --names)
+TIME=2
+
+PIDS=$(pgrep umess)
+[ ! -z "$PIDS" ] && kill $PIDS
+
+STRING=""
+case $1 in
+  -t|--time)
+    STRING=$(date '+%Y-%m-%d %H:%M')
+    ;;
+  -d|--desktop)
+    STRING=$(bspc query -D -d focused --names)
+    ;;
+  -b|--desktop)
+    STRING=$(acpi)
+    ;;
+esac
+
+(echo $STRING; sleep $TIME) | umess -rb -f $FONT -m $MON 
