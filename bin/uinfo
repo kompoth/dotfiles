@@ -1,4 +1,6 @@
 #!/bin/bash
+# Some basic umess notifications for bspwm.
+# Author: Vasily Negrebetskiy
 
 FONT="Iosevka:size=16"
 MON=$(bspc query -M -d focused --names)
