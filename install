@@ -2,14 +2,15 @@
 
 CURDIR=`pwd`
 
-TILDA=".Xresources .xinitrc .bashrc .vimrc .icons"
-CONFIG="i3 i3blocks zathura ncmpcpp mopidy bspwm sxhkd"
+TILDA=".Xresources .xinitrc .bashrc .vimrc .icons .gtkrc-2.0"
+CONFIG="i3 i3blocks zathura ncmpcpp mopidy bspwm sxhkd gtk-3.0"
 LOCAL="bin"
 
 printhelp()
 {
   echo -e "$0 usage:"
   echo -e "\t $0 -i \t put all neccessary files to destinations"
+  echo -e "\t $0 -e \t install external files and scripts"
   echo -e "\t $0 -c \t remove existing dotfiles"
 }
 
@@ -28,12 +29,18 @@ if [[ "$1" =~ ^("-c"|"-i")$ ]]; then
     [ -L ~/.local/$f ] && rm -r ~/.local/$f && echo "removed $f"
     [ "$1" == "-i" ] && ln -s $CURDIR/$f ~/.local/$f && echo "linked $f"
   done
+elif [[ "$1" =~ ^("-e")$ ]]; then
+  [ ! -d "~/.urxvt/ext" ] && mkdir -p ~/.urxvt/ext 
+  wget -nv https://raw.githubusercontent.com/majutsushi/urxvt-font-size/master/font-size -P ~/.urxvt/ext
+  echo "installed urxvt extension"
   
-  if [ "$1" == "-i" ]; then
-    [ ! -d "~/.urxvt/ext" ] && mkdir -p ~/.urxvt/ext 
-    wget -nv https://raw.githubusercontent.com/majutsushi/urxvt-font-size/master/font-size -P ~/.urxvt/ext
-    echo "installed urxvt extension"
-  fi
+  [ ! -d "~/.themes" ] && mkdir -p ~/.themes
+  [ ! -d "~/.icons" ] && mkdir -p ~/.icons 
+  git clone https://github.com/TheGreatMcPain/gruvbox-material-gtk.git
+  mv gruvbox-material-gtk/icons/* ~/.icons
+  mv gruvbox-material-gtk/themes/* ~/.themes
+  rm -rf gruvbox-material-gtk
+  echo "installed gruvbox gtk theme and icons"
 else
   printhelp
 fi

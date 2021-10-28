@@ -18,6 +18,20 @@ super + Escape
 super + {t,b}
   uinfo -{t,b}
 
+# volume control
+XF86AudioLowerVolume
+  amixer set Master 5%-
+XF86AudioRaiseVolume
+  amixer set Master 5%+
+XF86AudioMute
+  amixer set Master toggle
+
+# backlight control
+XF86MonBrightnessUp
+  brightnessctl s +50
+XF86MonBrightnessDown
+  brightnessctl s 50-
+
 
 #
 # bspwm hotkeys

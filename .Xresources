@@ -20,7 +20,7 @@ urxvt.keysym.C-Left:   \033[1;5D
 urxvt.keysym.C-Right:  \033[1;5C
 
 Xcursor.size: 32
-Xcursor.theme: PearWhiteCursors
+Xcursor.theme: pix_black
 
 !hard contrast: 
 urxvt*background: #1d2021

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 PIDS=$(pgrep umess; pgrep ubatloop)
 [ ! -z "$PIDS" ] && kill $PIDS
@@ -7,7 +7,8 @@ ubatloop &
 MAINMON="eDP-1"
 bspc monitor ${MAINMON} -d terminal gui browser
 for mon in $(active_mons); do
-  [ $mon != $MAINMON ] && bspc monitor ${mon} -d desktop:$mon
+  [ $mon = $MAINMON ] && continue
+  bspc monitor ${mon} -d I:$mon II:$mon III:$mon IV:$mon
 done
 
 bspc rule -a TelegramDesktop desktop=gui
