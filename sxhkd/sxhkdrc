@@ -18,6 +18,10 @@ super + Escape
 super + {t,b}
   uinfo -{t,b}
 
+# change layout
+super + space
+  (setxkbmap -query | grep -q "layout:\s\+us") && setxkbmap ru || setxkbmap us
+
 # volume control
 XF86AudioLowerVolume
   amixer set Master 5%-
