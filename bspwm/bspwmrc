@@ -13,6 +13,7 @@ done
 
 bspc rule -a TelegramDesktop desktop=gui
 bspc rule -a Skype desktop=gui
+bspc rule -a Zathura state=tiled
 
 bspc config honor_size_hints false
 bspc config border_width 4
