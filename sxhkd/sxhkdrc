@@ -23,18 +23,12 @@ super + space
  kbdlayout && uinfo -l
 
 # volume control
-XF86AudioLowerVolume
-  amixer set Master 5%-
-XF86AudioRaiseVolume
-  amixer set Master 5%+
-XF86AudioMute
-  amixer set Master toggle
+XF86Audio{LowerVolume,RaiseVolume,Mute}
+  amixer set Master {5%-,5%+,toggle} && uinfo -v
 
 # backlight control
-XF86MonBrightnessUp
-  brightnessctl s +50
-XF86MonBrightnessDown
-  brightnessctl s 50-
+XF86MonBrightness{Down,Up}
+  brightnessctl s {50-,+50} && uinfo -bl
 
 
 #

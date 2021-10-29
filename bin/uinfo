@@ -23,6 +23,12 @@ case $1 in
   -l|--language)
     STRING=$(setxkbmap -query | perl -ne "/^layout:\s*([A-Za-z]+)$/ && print \$1")
     ;;
+  -bl|--backlight)
+    STRING=$(brightnessctl | grep -oP "\d+%")
+    ;;
+  -v|--volume)
+    STRING=$(amixer get Master | perl -ne "/(\d+\%).*(\bon\b|\boff\b)/ && print \$2.' '.\$1") 
+    ;;
 esac
 
 (echo $STRING; sleep $TIME) | umess -rb -f $FONT -m $MON 
