@@ -6,9 +6,15 @@ My configuration files for Linux.
 Installation
 ------------
 Use install script to put all files in places.
--i option creates neccessary links.
--e option loads external repos and scripts.
--c cleans links.
+-i option creates neccessary links
+-e option loads external repos and scripts
+-c cleans links
 
-I didn't manage to automate mouse pointer installation:
+Links
+-----
+Mouse pointer:
 https://www.gnome-look.org/p/1354435
+
+Amazing pixel art planet generator that I used
+to create a wallpaper:
+https://deep-fold.itch.io/pixel-planet-generator
