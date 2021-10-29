@@ -3,6 +3,8 @@
 # Author: Vasily Negrebetskiy
 
 FONT="Iosevka:size=16"
+FG="#282828"
+BG="#d79921"
 MON=$(bspc query -M -d focused --names)
 TIME=2
 
@@ -31,4 +33,4 @@ case $1 in
     ;;
 esac
 
-(echo $STRING; sleep $TIME) | umess -rb -f $FONT -m $MON 
+(echo $STRING; sleep $TIME) | umess -rb -f $FONT -m $MON -F $FG -B $BG 
