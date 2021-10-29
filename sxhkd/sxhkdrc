@@ -8,7 +8,7 @@ super + Return
 
 # program launcher
 super + d
-  dmenu_run -b -nf '#689d6a' -nb '#282828' -sf '#282828' -sb '#689d6a' -fn 'Hack'
+  dmenu_run -b -nf '#689d6a' -nb '#282828' -sf '#282828' -sb '#689d6a' -fn 'Iosevka'
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -20,7 +20,7 @@ super + {t,b}
 
 # change layout
 super + space
-  (setxkbmap -query | grep -q "layout:\s\+us") && setxkbmap ru || setxkbmap us
+ kbdlayout && uinfo -l
 
 # volume control
 XF86AudioLowerVolume

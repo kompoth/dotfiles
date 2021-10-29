@@ -1,0 +1,3 @@
+#!/bin/bash
+# Simple layout toggling script for bspwm.
+(setxkbmap -query | grep -q "layout:\s\+us") && setxkbmap ru || setxkbmap us

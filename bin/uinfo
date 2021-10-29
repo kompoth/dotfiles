@@ -17,8 +17,11 @@ case $1 in
   -d|--desktop)
     STRING=$(bspc query -D -d focused --names)
     ;;
-  -b|--desktop)
+  -b|--battery)
     STRING=$(acpi)
+    ;;
+  -l|--language)
+    STRING=$(setxkbmap -query | perl -ne "/^layout:\s*([A-Za-z]+)$/ && print \$1")
     ;;
 esac
 
