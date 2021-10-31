@@ -6,6 +6,10 @@
 super + Return
   urxvt
 
+# suspend
+super + l
+  systemctl suspend
+
 # program launcher
 super + d
   dmenu_run -b -nf '#689d6a' -nb '#282828' -sf '#282828' -sb '#689d6a' -fn 'Iosevka'
