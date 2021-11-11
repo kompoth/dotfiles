@@ -4,11 +4,19 @@ PIDS=$(pgrep umess; pgrep ubatloop)
 [ ! -z "$PIDS" ] && kill $PIDS
 ubatloop &
 
-MAINMON="eDP-1"
-bspc monitor ${MAINMON} -d terminal gui browser
-for mon in $(active_mons); do
-  [ $mon = $MAINMON ] && continue
-  bspc monitor ${mon} -d I:$mon II:$mon III:$mon IV:$mon
+MAINMON=eDP1
+xrandr --output $MAINMON --primary --mode 1920x1080 --rotate normal 
+
+ACTIVEMONS=$(active_mons)
+PREVMON=$MAINMON
+for MON in $(active_mons); do
+  if [[ $MON == $MAINMON ]]; then
+    bspc monitor ${MAINMON} -d terminal gui browser
+    continue
+  fi
+  xrandr --output $MON --mode 1920x1080 --rotate normal --right-of $PREVMON
+  bspc monitor $MON -d I:$MON II:$MON III:$MON IV:$MON
+  PREVMON=$MON
 done
 
 bspc rule -a TelegramDesktop desktop=gui
