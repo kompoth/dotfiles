@@ -18,3 +18,8 @@ https://www.gnome-look.org/p/1354435
 Amazing pixel art planet generator that I used
 to create a wallpaper:
 https://deep-fold.itch.io/pixel-planet-generator
+
+TODO
+----
+- fix dmenu displayed on the unfocused monitor
+- write better monitor handling
