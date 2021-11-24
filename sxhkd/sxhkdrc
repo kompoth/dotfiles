@@ -22,10 +22,6 @@ super + Escape
 super + {t,b}
   uinfo -{t,b}
 
-# change layout
-super + space
- kbdlayout && uinfo -l
-
 # volume control
 XF86Audio{LowerVolume,RaiseVolume,Mute}
   amixer set Master {5%-,5%+,toggle} && uinfo -v
