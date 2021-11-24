@@ -34,13 +34,9 @@ elif [[ "$1" =~ ^("-e")$ ]]; then
   wget -nv https://raw.githubusercontent.com/majutsushi/urxvt-font-size/master/font-size -P ~/.urxvt/ext
   echo "installed urxvt extension"
   
-  [ ! -d "~/.themes" ] && mkdir -p ~/.themes
-  [ ! -d "~/.icons" ] && mkdir -p ~/.icons 
-  git clone https://github.com/TheGreatMcPain/gruvbox-material-gtk.git
-  mv gruvbox-material-gtk/icons/* ~/.icons
-  mv gruvbox-material-gtk/themes/* ~/.themes
-  rm -rf gruvbox-material-gtk
-  echo "installed gruvbox gtk theme and icons"
+  [ ! -d "~/.vim/colors" ] && mkdir -p ~/.vim/colors
+  wget -nv https://raw.githubusercontent.com/srcery-colors/srcery-vim/master/colors/srcery.vim -P ~/.vim/colors
+  echo "installed srcery vim theme"
 else
   printhelp
 fi
