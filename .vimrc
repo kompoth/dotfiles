@@ -6,15 +6,11 @@ set mouse=a
 set nowrap
 set t_Co=16 " better system colors
 
-" Color patches
-highlight Pmenu ctermfg=8 ctermbg=0
-highlight PmenuSel ctermfg=15 ctermbg=6
-highlight StatusLine ctermfg=11 ctermbg=0
-highlight StatusLineNC ctermfg=8 ctermbg=0
-highlight VertSplit ctermfg=8 ctermbg=0
+" Use srcery colorscheme with minor changes
+colorscheme srcery
+highlight LineNr ctermfg=8
 highlight CursorLine cterm=none ctermfg=none 
 highlight CursorLineNr term=bold ctermfg=3 ctermbg=none 
-highlight LineNr ctermfg=8
 set cursorline
 
 " Indentation

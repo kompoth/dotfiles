@@ -62,14 +62,16 @@ fi
 
 if [ "$color_prompt" = yes ]; then
     function prompt() {
-      local c_yellow="\[\e[00;33m\]"
+      local c_yellow="\[\e[01;33m\]"
       local c_red="\[\e[01;31m\]"
-      local c_cyan="\[\e[01;36m\]"
-      local c_blue="\[\e[01;34m\]"
       local c_green="\[\e[01;32m\]"
+      local c_blue="\[\e[01;34m\]"
+      local c_magenta="\[\e[01;35m\]"
+      local c_cyan="\[\e[01;36m\]"
+      local c_white="\[\e[01;37m\]"
       local c_end="\[\e[m\]"
 
-      PS1="${c_yellow}\t${c_end} ${c_cyan}[\w]${c_end}${c_yellow} (\j)${c_end} "
+      PS1="${c_yellow}\t${c_end} ${c_green}[\w]${c_end}${c_yellow} (\j)${c_end} "
     }
     PROMPT_COMMAND=prompt
 else
