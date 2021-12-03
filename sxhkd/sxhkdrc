@@ -12,7 +12,7 @@ super + shift + l
 
 # program launcher
 super + d
-  dmenu_run -b -nf '#689d6a' -nb '#282828' -sf '#282828' -sb '#689d6a' -fn 'Iosevka'
+  dmenu_run_history -b -nf '#fce8c3' -nb '#1c1b19' -sf '#1c1b19' -sb '#fce8c3' -fn 'Iosevka'
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -53,7 +53,7 @@ super + m
 #
 
 # toggle between floating and tiling modes
-super + shift + space
+super + f
   bspc node -t ~floating
 
 

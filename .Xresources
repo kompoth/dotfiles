@@ -6,8 +6,8 @@ urxvt*cursorBlink: 1
 ! zooming
 URxvt.perl-ext-common:  font-size
 URxvt.keysym.C-minus:   font-size:decrease
-URxvt.keysym.C-equal:   font-size:increase
-URxvt.keysym.C-0:       font-size:reset
+URxvt.keysym.C-plus:    font-size:increase
+URxvt.keysym.C-equal:   font-size:reset
 
 ! disable ctrl+shift binding
 URxvt.iso14755: false
@@ -29,7 +29,7 @@ Xcursor.theme: pix_black
 ! special
 urxvt*foreground:   #fce8c3
 urxvt*background:   #1c1b19
-urxvt*cursorColor:  #fbb829
+urxvt*cursorColor:  #fce8c3
 
 ! black
 urxvt*color0:       #1c1b19
