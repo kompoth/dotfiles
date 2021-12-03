@@ -26,11 +26,12 @@ done
 bspc rule -a TelegramDesktop desktop=gui
 bspc rule -a Skype desktop=gui
 bspc rule -a Zathura state=tiled
+bspc rule -a feh state=floating
 
 bspc config honor_size_hints false
-bspc config border_width 3
+bspc config border_width 4
 bspc config window_gap 0
-bspc config focused_border_color "#fce8c3"
+bspc config focused_border_color "#519f50"
 bspc config active_border_color  "#baa67f"
 bspc config normal_border_color  "#918175"
 

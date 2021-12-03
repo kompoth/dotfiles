@@ -66,13 +66,13 @@ if [ "$color_prompt" = yes ]; then
       local c_red="\[\e[01;31m\]"
       local c_green="\[\e[01;32m\]"
       local c_yellow="\[\e[01;33m\]"
-      local c_blue="\[\e[01;34m\]"
+      local c_blue="\[\e[00;34m\]"
       local c_magenta="\[\e[01;35m\]"
       local c_cyan="\[\e[01;36m\]"
-      local c_white="\[\e[01;37m\]"
+      local c_white="\[\e[00;37m\]"
       local c_end="\[\e[m\]"
 
-      PS1="${c_green}\t${c_end} ${c_black}\w${c_end}${c_white} (\j)${c_end} "
+      PS1="${c_green}\t ${c_white}\w ${c_green}\j>${c_end} "
     }
     PROMPT_COMMAND=prompt
 else
