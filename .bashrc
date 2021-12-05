@@ -59,35 +59,23 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-
 if [ "$color_prompt" = yes ]; then
     function prompt() {
-      local c_black="\[\e[01;30m\]"
-      local c_red="\[\e[01;31m\]"
-      local c_green="\[\e[01;32m\]"
-      local c_yellow="\[\e[01;33m\]"
-      local c_blue="\[\e[00;34m\]"
-      local c_magenta="\[\e[01;35m\]"
-      local c_cyan="\[\e[01;36m\]"
-      local c_white="\[\e[00;37m\]"
+      local c_green1="\[\e[01;32m\]"
+      local c_white0="\[\e[00;37m\]"
+      local c_red0="\[\e[00;31m\]"
       local c_end="\[\e[m\]"
+      
+      local njobs=$(jobs -p | wc -l)
+      [[ $njobs = 0 ]] && njobs="" || njobs="${c_red0}$njobs"
 
-      PS1="${c_green}\t ${c_white}\w ${c_green}\j>${c_end} "
+      PS1="${c_green1}\t ${c_white0}\w $njobs${c_green1}>${c_end} "
     }
     PROMPT_COMMAND=prompt
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+    PS1='\t \w \j> '
 fi
 unset color_prompt force_color_prompt
-
-# If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    ;;
-*)
-    ;;
-esac
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -96,18 +84,21 @@ if [ -x /usr/bin/dircolors ]; then
     #alias dir='dir --color=auto'
     #alias vdir='vdir --color=auto'
 
-    #alias grep='grep --color=auto'
+    alias grep='grep --color=auto'
     #alias fgrep='fgrep --color=auto'
     #alias egrep='egrep --color=auto'
 fi
 
 # colored GCC warnings and errors
-#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
-#alias ll='ls -l'
-#alias la='ls -A'
+alias ll='ls -l'
+alias la='ls -A'
 #alias l='ls -CF'
+
+# usable calendar
+alias mycal="ncal -M -b -3"
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -132,8 +123,6 @@ fi
 
 # Map Ctrl-S to smth usefull other than XOFF (interrupt data flow).
 stty -ixon
-
-alias mycal="ncal -M -b -3"
 
 if [ -d ~/.texmf ] ; then
     export TEXMFHOME=~/.texmf
