@@ -2,6 +2,10 @@
 # wm independent hotkeys
 #
 
+# make sxhkd reload its configuration files
+super + Escape
+  pkill -USR1 -x sxhkd
+
 # terminal emulator
 super + Return
   urxvt
@@ -14,9 +18,9 @@ super + shift + l
 super + d
   dmenu_run_history -b -nf '#baa67f' -nb '#1c1b19' -sf '#1c1b19' -sb '#baa67f' -fn 'Iosevka'
 
-# make sxhkd reload its configuration files:
-super + Escape
-  pkill -USR1 -x sxhkd
+# screenshot with maim
+super + Print
+  maim -so ~/screenshots/$(date +%F-%T).png
 
 # show indicators
 super + {t,b}
