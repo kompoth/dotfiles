@@ -12,7 +12,7 @@ super + shift + l
 
 # program launcher
 super + d
-  dmenu_run_history -b -nf '#1c1b19' -nb '#1c1b19' -sf '#1c1b19' -sb '#1c1b19' -fn 'Iosevka'
+  dmenu_run_history -b -nf '#baa67f' -nb '#1c1b19' -sf '#1c1b19' -sb '#baa67f' -fn 'Iosevka'
 
 # make sxhkd reload its configuration files:
 super + Escape
