@@ -10,10 +10,6 @@ super + Escape
 super + Return
   urxvt
 
-# suspend
-super + shift + l
-  systemctl suspend
-
 # program launcher
 super + d
   dmenu_run_history -b -nf '#baa67f' -nb '#1c1b19' -sf '#1c1b19' -sb '#baa67f' -fn 'Iosevka'

@@ -26,8 +26,10 @@ set hlsearch
 set incsearch
 set ignorecase
 
-" Python space display
+" Python settings
 autocmd FileType python setlocal list lcs=tab:>-,space:·
+autocmd FileType python setlocal shiftwidth=4
+autocmd FileType python setlocal softtabstop=4
 
 " Special wrapping for tex files
 autocmd FileType tex setlocal wrap linebreak
