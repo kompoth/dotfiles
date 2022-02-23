@@ -60,18 +60,27 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    function prompt() {
+    function set_prompt() {
       local c_green1="\[\e[01;32m\]"
+      local c_blue1="\[\e[01;34m\]"
       local c_white0="\[\e[00;37m\]"
       local c_red0="\[\e[00;31m\]"
       local c_end="\[\e[m\]"
       
       local njobs=$(jobs -p | wc -l)
       [[ $njobs = 0 ]] && njobs="" || njobs="${c_red0}$njobs"
-
-      PS1="${c_green1}\t ${c_white0}\w $njobs${c_green1}>${c_end} "
+     
+      local py_env=""
+      if test -z "$VIRTUAL_ENV"; then
+        py_env=""
+      else
+        py_env="${c_blue1}(`basename $VIRTUAL_ENV`) "
+      fi
+      
+      
+      PS1="$py_env${c_green1}\t ${c_white0}\w $njobs${c_green1}>${c_end} "
     }
-    PROMPT_COMMAND=prompt
+    PROMPT_COMMAND=set_prompt
 else
     PS1='\t \w \j> '
 fi

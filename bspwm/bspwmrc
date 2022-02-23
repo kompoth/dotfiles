@@ -1,9 +1,5 @@
 #!/bin/bash
 
-bspc config focus_follows_pointer true
-bspc config remove_unplugged_monitors true
-bspc config remove_disabled_monitors true
-
 PIDS=$(pgrep umess; pgrep ubatloop)
 [ ! -z "$PIDS" ] && kill $PIDS
 ubatloop &
@@ -23,10 +19,15 @@ for MON in $(active_mons); do
   PREVMON=$MON
 done
 
+bspc config focus_follows_pointer true
+bspc config remove_unplugged_monitors true
+bspc config remove_disabled_monitors true
+
 bspc rule -a TelegramDesktop desktop=gui
 bspc rule -a Skype desktop=gui
 bspc rule -a Zathura state=tiled
 bspc rule -a feh state=floating
+bspc rule -a matplotlib state=floating
 
 bspc config honor_size_hints false
 bspc config border_width 4
