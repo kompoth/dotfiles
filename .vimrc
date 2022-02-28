@@ -10,7 +10,7 @@ set t_Co=16 " better system colors
 colorscheme srcery
 highlight LineNr ctermfg=8
 highlight CursorLine cterm=none ctermfg=none 
-highlight CursorLineNr term=bold ctermfg=3 ctermbg=none 
+highlight CursorLineNr term=bold cterm=bold ctermfg=3 ctermbg=none 
 set cursorline
 
 " Indentation
