@@ -6,9 +6,9 @@
 super + Escape
   pkill -USR1 -x sxhkd
 
-# terminal emulator
-super + Return
-  urxvt
+## terminal emulator
+#super + Return
+#  urxvt
 
 # program launcher
 super + d
@@ -31,86 +31,86 @@ XF86MonBrightness{Down,Up}
   brightnessctl s {50-,+50} && uinfo -bl
 
 
+##
+## bspwm hotkeys
+##
 #
-# bspwm hotkeys
+## quit bspwm normally
+#super + alt + Escape
+#  bspc quit
 #
-
-# quit bspwm normally
-super + alt + Escape
-  bspc quit
-
-# close
-super + shift + {c}
-  bspc node -{c}
-
-# alternate between the tiled and monocle layout
-super + m
-  bspc desktop -l next
-
-
+## close
+#super + shift + {c}
+#  bspc node -{c}
 #
-# state/flags
+## alternate between the tiled and monocle layout
+#super + m
+#  bspc desktop -l next
 #
-
-# toggle between floating and tiling modes
-super + f
-  bspc node -t ~floating
-
-
 #
-# focus/swap
+##
+## state/flags
+##
 #
-
-# focus/swap the node in the given direction
-super + {_,shift + }{h,j,k,l}
-  bspc node -{f,s} {west,south,north,east}
-
-# focus the next/previous node in the current desktop
-alt + {_,shift + }Tab
-  bspc node -f {next,prev}.local.active
-
-# focus the next desktop in the current monitor
-super + {_,shift + }Tab
-  bspc desktop -f {next,prev}.local && uinfo -d
-
-super + bracket{left,right}
-  bspc monitor -f {prev,next} && uinfo -d
-
-
+## toggle between floating and tiling modes
+#super + f
+#  bspc node -t ~floating
 #
-# preselect
 #
-
-# preselect the direction
-super + ctrl + {h,j,k,l}
-  bspc node -p {west,south,north,east}
-
-# preselect the ratio
-super + ctrl + {1-9}
-  bspc node -o 0.{1-9}
-
-# cancel the preselection for the focused node
-super + ctrl + space
-  bspc node -p cancel
-
-# cancel the preselection for the focused desktop
-super + ctrl + shift + space
-  bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
-
-
+##
+## focus/swap
+##
 #
-# move/resize
+## focus/swap the node in the given direction
+#super + {_,shift + }{h,j,k,l}
+#  bspc node -{f,s} {west,south,north,east}
 #
-
-# expand a window by moving one of its side outward
-super + alt + {h,j,k,l}
-  bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
-
-# contract a window by moving one of its side inward
-super + alt + shift + {h,j,k,l}
-  bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
-
-
-# move a floating window
-super + {Left,Down,Up,Right}
-  bspc node -v {-20 0,0 20,0 -20,20 0}
+## focus the next/previous node in the current desktop
+#alt + {_,shift + }Tab
+#  bspc node -f {next,prev}.local.active
+#
+## focus the next desktop in the current monitor
+#super + {_,shift + }Tab
+#  bspc desktop -f {next,prev}.local && uinfo -d
+#
+#super + bracket{left,right}
+#  bspc monitor -f {prev,next} && uinfo -d
+#
+#
+##
+## preselect
+##
+#
+## preselect the direction
+#super + ctrl + {h,j,k,l}
+#  bspc node -p {west,south,north,east}
+#
+## preselect the ratio
+#super + ctrl + {1-9}
+#  bspc node -o 0.{1-9}
+#
+## cancel the preselection for the focused node
+#super + ctrl + space
+#  bspc node -p cancel
+#
+## cancel the preselection for the focused desktop
+#super + ctrl + shift + space
+#  bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
+#
+#
+##
+## move/resize
+##
+#
+## expand a window by moving one of its side outward
+#super + alt + {h,j,k,l}
+#  bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+#
+## contract a window by moving one of its side inward
+#super + alt + shift + {h,j,k,l}
+#  bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+#
+#
+## move a floating window
+#super + {Left,Down,Up,Right}
+#  bspc node -v {-20 0,0 20,0 -20,20 0}
