@@ -1,11 +1,10 @@
 #!/bin/bash
-# Some basic umess notifications for bspwm.
+# Some basic umess notifications.
 # Author: Vasily Negrebetskiy
 
-FONT="Iosevka:size=12"
-FG="#1c1b19"
-BG="#baa67f"
-MON=$(bspc query -M -d focused --names)
+FONT="Iosevka:size=14"
+FG="#000000"
+BG="#d0d0d0"
 TIME=2
 
 PIDS=$(pgrep umess)
@@ -17,10 +16,10 @@ case $1 in
     STRING=$(date '+%Y-%m-%d %H:%M')
     ;;
   -d|--desktop)
-    STRING=$(bspc query -D -d focused --names)
+    STRING=$(xprop -root | perl -ne "/^_NET_CURRENT_DESKTOP\(CARDINAL\) = (\d+)/ && print 'Desktop: '.(\$1+1)")
     ;;
   -b|--battery)
-    STRING=$(acpi | perl -ne "/^Battery \d*: ([A-Za-z]{3})[a-z]*, (\d+%), (\d+:\d+):\d+/ && printf \"%s %s | rem %s\", lc \$1, \$2, \$3")
+    STRING=$(acpi | perl -ne "/^Battery \d+: (.+)/ && print \$1")
     ;;
   -l|--language)
     STRING=$(setxkbmap -query | perl -ne "/^layout:\s*([A-Za-z]+)$/ && print \$1")
@@ -33,4 +32,4 @@ case $1 in
     ;;
 esac
 
-(echo $STRING; sleep $TIME) | umess -b -f $FONT -m $MON -F $FG -B $BG 
+(echo $STRING; sleep $TIME) | umess -b -f $FONT -F $FG -B $BG 

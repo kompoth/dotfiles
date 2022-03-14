@@ -11,8 +11,8 @@ use strict;
 use warnings;
 
 my $BATNUM = 0;
-my $INTERVAL = 5;  # min, interval between checks
-my $CRITLVL = 20;  # %, alarming battery charge
+my $INTERVAL = 1;  # min, interval between checks
+my $CRITLVL = 100;  # %, alarming battery charge
 my $FONT = "Iosevka:size=24";  # xft notation
 my $FGCOL = "white";
 my $BGCOL = "red";
@@ -23,9 +23,10 @@ my $status;
 my $messaged = 0;
 my $acpicmd = "acpi -b | grep 'Battery $BATNUM' |";
 my $warnloop = "while (true); do " . 
-                "printf \"Critical battery level: %d%%%%\"; " . 
-                "sleep 1; done";
+               "printf \"Critical battery level: %d%%%%\"; " . 
+               "sleep 1; done";
 my $umesscmd = "umess -f \"$FONT\" -B \"$BGCOL\" -F \"$FGCOL\" -d |";
+my $discharging = 0;
 my $exitcode;
 
 while (1) {
@@ -35,11 +36,12 @@ while (1) {
   close(ACPI);
   
   # die on unexpected battery info
-  die "Unexpected battery info: $acpi" unless ($acpi =~ /\w+: (\w+), (\d+)%/);
+  die "Unexpected battery info: $acpi" unless ($acpi =~ /\w+: ([A-Za-z\s]+), (\d+)%/);
   $status = $1;
   $charge = $2;
+  $discharging = ($status eq "Not charging" or $status eq "Discharging");
   
-  if ($status eq "Discharging" and $charge < $CRITLVL) {
+  if ($discharging and $charge < $CRITLVL) {
     my $cmd = sprintf $warnloop . " | " . $umesscmd , $charge;
     open(WARNLOOP, $cmd) or die("Warnloop error: $!");
     $exitcode = <WARNLOOP>;
