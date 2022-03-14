@@ -61,7 +61,7 @@ fi
 
 if [ "$color_prompt" = yes ]; then
     function set_prompt() {
-      local c_green1="\[\e[01;32m\]"
+      local c_green0="\[\e[00;32m\]"
       local c_blue1="\[\e[01;34m\]"
       local c_white0="\[\e[00;37m\]"
       local c_red0="\[\e[00;31m\]"
@@ -78,7 +78,7 @@ if [ "$color_prompt" = yes ]; then
       fi
       
       
-      PS1="$py_env${c_green1}\t ${c_white0}\w $njobs${c_green1}>${c_end} "
+      PS1="$py_env${c_green0}\t ${c_blue1}\w $njobs${c_green1}>${c_end} "
     }
     PROMPT_COMMAND=set_prompt
 else
