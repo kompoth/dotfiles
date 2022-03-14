@@ -23,16 +23,14 @@ bspc config focus_follows_pointer true
 bspc config remove_unplugged_monitors true
 bspc config remove_disabled_monitors true
 
-bspc rule -a TelegramDesktop desktop=gui
-bspc rule -a Skype desktop=gui
 bspc rule -a Zathura state=tiled
 bspc rule -a feh state=floating
 bspc rule -a matplotlib state=floating
+bspc rule -a Gnuplot state=floating
 
 bspc config honor_size_hints false
-bspc config border_width 4
+bspc config border_width 6
 bspc config window_gap 0
-bspc config focused_border_color "#98bc37"
-bspc config active_border_color  "#baa67f"
-bspc config normal_border_color  "#918175"
-
+bspc config focused_border_color "#d0d0d0"
+bspc config active_border_color  "#A0A1A7"
+bspc config normal_border_color  "#A0A1A7"
