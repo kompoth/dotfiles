@@ -1,18 +1,10 @@
-#
-# wm independent hotkeys
-#
-
 # make sxhkd reload its configuration files
 super + Escape
   pkill -USR1 -x sxhkd
 
-## terminal emulator
-#super + Return
-#  urxvt
-
 # program launcher
 super + d
-  dmenu_run_history -b -nf '#baa67f' -nb '#1c1b19' -sf '#1c1b19' -sb '#baa67f' -fn 'Iosevka'
+  ~/dotfiles/scripts/dmenu_run_history -b -nf '#000000' -nb '#d0d0d0' -sf '#d0d0d0' -sb '#000000' -fn 'Iosevka:size=14'
 
 # screenshot with maim
 super + Print
@@ -20,97 +12,13 @@ super + Print
 
 # show indicators
 super + {t,b}
-  uinfo -{t,b}
+  ~/dotfiles/scripts/uinfo -{t,b}
 
 # volume control
 XF86Audio{LowerVolume,RaiseVolume,Mute}
-  amixer set Master {5%-,5%+,toggle} && uinfo -v
+
+  amixer set Master {5%-,5%+,toggle} && ~/dotfiles/scripts/uinfo -v
 
 # backlight control
 XF86MonBrightness{Down,Up}
-  brightnessctl s {50-,+50} && uinfo -bl
-
-
-##
-## bspwm hotkeys
-##
-#
-## quit bspwm normally
-#super + alt + Escape
-#  bspc quit
-#
-## close
-#super + shift + {c}
-#  bspc node -{c}
-#
-## alternate between the tiled and monocle layout
-#super + m
-#  bspc desktop -l next
-#
-#
-##
-## state/flags
-##
-#
-## toggle between floating and tiling modes
-#super + f
-#  bspc node -t ~floating
-#
-#
-##
-## focus/swap
-##
-#
-## focus/swap the node in the given direction
-#super + {_,shift + }{h,j,k,l}
-#  bspc node -{f,s} {west,south,north,east}
-#
-## focus the next/previous node in the current desktop
-#alt + {_,shift + }Tab
-#  bspc node -f {next,prev}.local.active
-#
-## focus the next desktop in the current monitor
-#super + {_,shift + }Tab
-#  bspc desktop -f {next,prev}.local && uinfo -d
-#
-#super + bracket{left,right}
-#  bspc monitor -f {prev,next} && uinfo -d
-#
-#
-##
-## preselect
-##
-#
-## preselect the direction
-#super + ctrl + {h,j,k,l}
-#  bspc node -p {west,south,north,east}
-#
-## preselect the ratio
-#super + ctrl + {1-9}
-#  bspc node -o 0.{1-9}
-#
-## cancel the preselection for the focused node
-#super + ctrl + space
-#  bspc node -p cancel
-#
-## cancel the preselection for the focused desktop
-#super + ctrl + shift + space
-#  bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
-#
-#
-##
-## move/resize
-##
-#
-## expand a window by moving one of its side outward
-#super + alt + {h,j,k,l}
-#  bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
-#
-## contract a window by moving one of its side inward
-#super + alt + shift + {h,j,k,l}
-#  bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
-#
-#
-## move a floating window
-#super + {Left,Down,Up,Right}
-#  bspc node -v {-20 0,0 20,0 -20,20 0}
+  brightnessctl s {50-,+50} && ~/dotfiles/scripts/uinfo -bl

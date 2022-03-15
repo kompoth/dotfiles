@@ -4,7 +4,6 @@ CURDIR=`pwd`
 
 TILDA=".Xresources .xinitrc .bashrc .vimrc .icons"
 CONFIG="i3 i3blocks zathura ncmpcpp mopidy bspwm sxhkd"
-LOCAL="bin"
 
 printhelp()
 {
@@ -25,10 +24,6 @@ if [[ "$1" =~ ^("-c"|"-i")$ ]]; then
     [ "$1" == "-i" ] && ln -s $CURDIR/$f ~/.config/$f && echo "linked $f"
   done
   
-  for f in $LOCAL ; do
-    [ -L ~/.local/$f ] && rm -r ~/.local/$f && echo "removed $f"
-    [ "$1" == "-i" ] && ln -s $CURDIR/$f ~/.local/$f && echo "linked $f"
-  done
 elif [[ "$1" =~ ^("-e")$ ]]; then
   [ ! -d "~/.urxvt/ext" ] && mkdir -p ~/.urxvt/ext 
   wget -nv https://raw.githubusercontent.com/majutsushi/urxvt-font-size/master/font-size -P ~/.urxvt/ext
