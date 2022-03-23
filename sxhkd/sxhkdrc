@@ -1,24 +1,28 @@
-# make sxhkd reload its configuration files
+# Reload sxhkd configuration
 super + Escape
   pkill -USR1 -x sxhkd
 
-# program launcher
+# Program launcher
 super + d
   ~/dotfiles/scripts/dmenu_run_history -b -nf '#000000' -nb '#d0d0d0' -sf '#d0d0d0' -sb '#000000' -fn 'Iosevka:size=14'
 
-# screenshot with maim
+# Screenshot with maim
 super + Print
   maim -so ~/screenshots/$(date +%F-%T).png
 
-# show indicators
+# Show indicators
 super + {t,b}
   ~/dotfiles/scripts/uinfo -{t,b}
 
-# volume control
+# Volume control
 XF86Audio{LowerVolume,RaiseVolume,Mute}
 
   amixer set Master {5%-,5%+,toggle} && ~/dotfiles/scripts/uinfo -v
 
-# backlight control
+# Backlight control
 XF86MonBrightness{Down,Up}
   brightnessctl s {50-,+50} && ~/dotfiles/scripts/uinfo -bl
+
+# Halve active window
+super + h
+  xdotool getactivewindow windowsize 960 1080
