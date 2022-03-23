@@ -24,5 +24,7 @@ XF86MonBrightness{Down,Up}
   brightnessctl s {50-,+50} && ~/dotfiles/scripts/uinfo -bl
 
 # Halve active window
+# Both my monitors are 1920x1080. 
+# Subtract 10 for borders.
 super + h
-  xdotool getactivewindow windowsize 960 1080
+  xdotool getactivewindow windowsize 950 1070
