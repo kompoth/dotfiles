@@ -34,6 +34,11 @@ autocmd FileType python setlocal softtabstop=4
 " Special wrapping for tex files
 autocmd FileType tex setlocal wrap linebreak
 
+" Spellchecker
+set spelllang=en_us,ru
+set spellfile=~/.vim/spell/custom.utf-8.add
+autocmd FileType tex setlocal spell
+
 " Splits
 set splitbelow
 set splitright
