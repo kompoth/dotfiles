@@ -9,5 +9,6 @@ PIDS=$(pgrep umess; pgrep ubatloop)
 [ ! -z "$PIDS" ] && kill $PIDS
 ~/dotfiles/scripts/ubatloop &
 
+#exec startlxqt
 sxhkd &
 exec evilwm -term urxvt -fg '#000000' -bg '#d0d0d0' -bw 5

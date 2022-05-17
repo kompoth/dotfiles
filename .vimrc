@@ -6,11 +6,9 @@ set mouse=a
 set nowrap
 set t_Co=16 " better system colors
 
-" Use srcery colorscheme with minor changes
-colorscheme srcery
-highlight LineNr ctermfg=8
-highlight CursorLine cterm=none ctermfg=none 
-highlight CursorLineNr term=bold cterm=bold ctermfg=3 ctermbg=none 
+" Configure colorscheme 
+hi clear CursorLine
+hi CursorLineNr term=bold cterm=bold ctermfg=3 ctermbg=none 
 set cursorline
 
 " Indentation
@@ -68,12 +66,7 @@ let worlds.template_path = '~/worlds/wiki/templates'
 let worlds.template_default = 'default'
 let worlds.template_ext = '.html'
 
-let mywiki = {}
-let mywiki.path = '~/mywiki/vim'
-let mywiki.path_html = '~/mywiki/html'
-let mywiki.diary_header = 'Журнал стресса'
-
-let g:vimwiki_list = [worlds, mywiki]
+let g:vimwiki_list = [worlds]
 let g:vimwiki_diary_months = {
     \1: 'Январь', 2: 'Февраль', 3: 'Март', 4: 'Апрель', 5: 'Май',
     \6: 'Июнь', 7: 'Июль', 8: 'Август', 9: 'Сентябрь', 10: 'Октябрь',
@@ -86,4 +79,3 @@ autocmd BufEnter *.wiki imap -- —
 autocmd BufEnter *.wiki set nocompatible
 autocmd BufEnter *.wiki filetype plugin on
 autocmd BufEnter *.wiki syntax on
-au BufNewFile ~/mywiki/vim/diary/*.wiki :silent 0r !~/.local/bin/stressjrnl-template '%'
