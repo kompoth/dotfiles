@@ -52,26 +52,27 @@ if empty(glob('~/.vim/autoload/pathogen.vim'))
 endif
 execute pathogen#infect()
 
-" Vimwiki autoinstall
+" Plugins autoinstall
 if empty(glob('~/.vim/bundle/vimwiki'))
   silent !mkdir -p ~/.vim/bundle
   silent !git clone https://github.com/vimwiki/vimwiki.git ~/.vim/bundle/vimwiki
 endif
 
 " Vimwiki (install it first)
-let worlds = {}
-let worlds.path = '~/worlds/wiki/vim'
-let worlds.path_html = '~/worlds/wiki/html'
-let worlds.template_path = '~/worlds/wiki/templates'
-let worlds.template_default = 'default'
-let worlds.template_ext = '.html'
+let mywiki = {}
+let mywiki.path = '~/mywiki/wiki'
+let mywiki.path_html = '~/mywiki/html'
+let mywiki.template_path = '~/mywiki/templates'
+let mywiki.template_default = 'default'
+let mywiki.template_ext = '.html'
+let g:vimwiki_list = [mywiki]
 
-let g:vimwiki_list = [worlds]
 let g:vimwiki_diary_months = {
     \1: 'Январь', 2: 'Февраль', 3: 'Март', 4: 'Апрель', 5: 'Май',
     \6: 'Июнь', 7: 'Июль', 8: 'Август', 9: 'Сентябрь', 10: 'Октябрь',
     \11: 'Ноябрь', 12: 'Декабрь'
-  \} 
+  \}
+let g:vimwiki_toc_header = "Содержание"
 
 " Special rules for wiki files
 autocmd BufEnter *.wiki setlocal wrap linebreak
