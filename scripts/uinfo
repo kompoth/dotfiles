@@ -28,7 +28,7 @@ case $1 in
     STRING=$(brightnessctl | grep -oP "\d+%")
     ;;
   -v|--volume)
-    STRING=$(amixer get Master | perl -ne "/(\d+\%).*(\bon\b|\boff\b)/ && print \$2.' '.\$1") 
+    STRING=$(amixer get Master | perl -nle "/(\d+\%).*(\bon\b|\boff\b)/ && print \$2.' '.\$1") 
     ;;
 esac
 
