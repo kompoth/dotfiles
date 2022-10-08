@@ -1,4 +1,5 @@
 #!/bin/bash
+xset b off
 xsetroot -cursor_name left_ptr -solid "#A0A1A7"
 xrdb -merge ~/.Xresources
 setxkbmap -layout us,ru -model pc105 -option grp:win_space_toggle -option terminate:ctrl_alt_bksp
