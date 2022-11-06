@@ -16,8 +16,7 @@ super + {t,b}
 
 # Volume control
 XF86Audio{LowerVolume,RaiseVolume,Mute}
-
-  amixer set Master {5%-,5%+,toggle} && ~/dotfiles/scripts/uinfo -v
+  pamixer {-d 5,-i 5,--toggle-mute} && ~/dotfiles/scripts/uinfo -v
 
 # Backlight control
 XF86MonBrightness{Down,Up}
