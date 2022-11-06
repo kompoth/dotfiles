@@ -2,8 +2,8 @@
 
 CURDIR=`pwd`
 
-TILDA=".Xresources .xinitrc .bashrc .vimrc .icons"
-CONFIG="i3 i3blocks zathura ncmpcpp mopidy bspwm sxhkd"
+TILDA=".Xresources .xinitrc .bashrc .vimrc"
+CONFIG="zathura sxhkd"
 
 printhelp()
 {
