@@ -18,4 +18,4 @@ PIDS=$(pgrep umess; pgrep ubatloop)
 
 # start some nice programs
 sxhkd &
-exec evilwm -term urxvt -bw 5
+exec evilwm -term urxvt -bw 5 -fg '#98BC37' -fc '#0AAEB3' -bg '#918175'
