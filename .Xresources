@@ -22,27 +22,62 @@ urxvt.keysym.C-Right:  \033[1;5C
 Xcursor.size: 32
 Xcursor.theme: pix_black
 
-!================
-! Theme: srcery 
-!================
-
 ! Atom One Light theme
-urxvt*background: #f9f9f9
-urxvt*foreground: #383a42
-urxvt*cursorColor: #d0d0d0
-urxvt*color0: #000000
-urxvt*color1: #E45649
-urxvt*color2: #50A14F
-urxvt*color3: #986801
-urxvt*color4: #4078F2
-urxvt*color5: #A626A4
-urxvt*color6: #0184BC
-urxvt*color7: #A0A1A7
-urxvt*color8: #5c6370
-urxvt*color9: #e06c75
-urxvt*color10: #50A14F
-urxvt*color11: #986801
-urxvt*color12: #4078F2
-urxvt*color13: #A626A4
-urxvt*color14: #0184BC
-urxvt*color15: #ffffff
+!urxvt*background: #f9f9f9
+!urxvt*foreground: #383a42
+!urxvt*cursorColor: #d0d0d0
+!urxvt*color0: #000000
+!urxvt*color1: #E45649
+!urxvt*color2: #50A14F
+!urxvt*color3: #986801
+!urxvt*color4: #4078F2
+!urxvt*color5: #A626A4
+!urxvt*color6: #0184BC
+!urxvt*color7: #A0A1A7
+!urxvt*color8: #5c6370
+!urxvt*color9: #e06c75
+!urxvt*color10: #50A14F
+!urxvt*color11: #986801
+!urxvt*color12: #4078F2
+!urxvt*color13: #A626A4
+!urxvt*color14: #0184BC
+!urxvt*color15: #ffffff
+
+! srcery theme
+
+! special
+urxvt*background: #1C1B19
+urxvt*foreground: #FCE8C3
+urxvt*cursorColor: #FBB829
+
+! black
+urxvt*color0:   #1C1B19
+urxvt*color8:   #918175
+
+! red
+urxvt*color1:   #EF2F27
+urxvt*color9:   #F75341
+
+! green
+urxvt*color2:   #519F50
+urxvt*color10:  #98BC37
+
+! yellow
+urxvt*color3:   #FBB829
+urxvt*color11:  #FED06E
+
+! blue
+urxvt*color4:   #2C78BF
+urxvt*color12:  #68A8E4
+
+! magenta
+urxvt*color5:   #E02C6D
+urxvt*color13:  #FF5C8F
+
+! cyan
+urxvt*color6:   #0AAEB3
+urxvt*color14:  #2BE4D0
+
+! white
+urxvt*color7:   #BAA67F
+urxvt*color15:  #FCE8C3
