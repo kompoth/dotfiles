@@ -4,7 +4,10 @@ super + Escape
 
 # Program launcher
 super + d
-  ~/dotfiles/scripts/dmenu_run_history -b -nf '#000000' -nb '#d0d0d0' -sf '#d0d0d0' -sb '#000000' -fn 'Iosevka:size=14'
+  ~/dotfiles/scripts/dmenu_run_history \
+    -b -fn 'Iosevka:size=14' \
+    -nf '#918175' -nb '#121212' \ 
+    -sf '#121212' -sb '#98bc37' 
 
 # Screenshot with maim
 super + Print

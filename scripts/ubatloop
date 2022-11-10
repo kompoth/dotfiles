@@ -13,8 +13,8 @@ my $BATNUM = 0;
 my $INTERVAL = 1;  # min, interval between checks
 my $CRITLVL = 30;  # %, alarming battery charge
 my $FONT = "Iosevka:size=24";  # xft notation
-my $FGCOL = "white";
-my $BGCOL = "red";
+my $FGCOL = "#1c1b19";
+my $BGCOL = "#98bc37";
 
 my $acpi;
 my $charge;

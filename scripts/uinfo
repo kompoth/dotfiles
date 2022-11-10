@@ -2,10 +2,10 @@
 # Some basic umess notifications.
 # Author: Vasily Negrebetskiy
 
-FONT="Iosevka:size=14"
-FG="#000000"
-BG="#d0d0d0"
-TIME=2
+FONT="Iosevka:size=16"
+FG="#1c1b19"
+BG="#98bc37"
+TIME=4
 
 PIDS=$(pgrep umess)
 [ ! -z "$PIDS" ] && kill $PIDS
