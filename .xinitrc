@@ -3,6 +3,9 @@
 # disable bell
 xset b off
 
+# root color
+xsetroot -solid '#121212'
+
 # merge Xresources
 xrdb -merge ~/.Xresources
 
