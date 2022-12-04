@@ -20,7 +20,7 @@ urxvt.keysym.C-Left:   \033[1;5D
 urxvt.keysym.C-Right:  \033[1;5C
 
 Xcursor.size: 32
-Xcursor.theme: pix_black
+Xcursor.theme: Simp1e-Adw-Dark
 
 ! Atom One Light theme
 !urxvt*background: #f9f9f9
