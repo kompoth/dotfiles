@@ -1,0 +1,14 @@
+#! /bin/sh
+
+pgrep -x sxhkd > /dev/null || sxhkd &
+
+#bspc monitor eDP-1 -d I II III
+for mon in `~/dotfiles/scripts/active_mons`; do
+    bspc monitor $mon -d I II III
+done
+
+bspc config focus_follows_pointer true
+bspc config border_width 2
+bspc config window_gap 5
+
+bspc rule -a org.remmina.Remmina state=floating

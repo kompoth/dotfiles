@@ -3,7 +3,7 @@
 CURDIR=`pwd`
 
 TILDA=".Xresources .xinitrc .bashrc .vimrc"
-CONFIG="zathura sxhkd"
+CONFIG="zathura sxhkd bspwm"
 
 printhelp()
 {

@@ -21,4 +21,5 @@ xsetroot -cursor_name left_ptr
 
 # start hotkey daemon and wm
 sxhkd &
-exec evilwm -term urxvt -bw 5 -fg '#98BC37' -fc '#0AAEB3' -bg '#918175'
+exec bspwm
+#exec evilwm -term urxvt -bw 5 -fg '#98BC37' -fc '#0AAEB3' -bg '#918175'
