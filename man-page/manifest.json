@@ -1,6 +1,6 @@
 {
     "manifest_version": 3,
-    "name": "ram-page",
+    "name": "man-page",
     "version": "1.0",
     "description": "Custom new tab startpage",
     "chrome_url_overrides": {
