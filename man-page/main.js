@@ -5,7 +5,7 @@ function gebi(a) {
 function date() {
     let options = { day: 'numeric', month: 'numeric', year: 'numeric'};
     let now = new Date();
-    gebi("date").innerHTML = now.toLocaleDateString("en-US", options);
+    gebi("date").innerHTML = now.toLocaleDateString("en-UK", options);
 }
 
 function weather( town ) {
