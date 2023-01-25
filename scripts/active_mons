@@ -1,2 +1,2 @@
 #!/bin/bash
-xrandr --query | perl -ne '/(.+) connected/ && $1 ne $main && print "$1\n"'
+xrandr --query | perl -ne '/(.+) connected (primary )?(\d+x\d+)/ && print "$1:$3\n"'

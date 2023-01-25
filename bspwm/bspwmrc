@@ -2,9 +2,16 @@
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 
-#bspc monitor eDP-1 -d I II III
-for mon in `~/dotfiles/scripts/active_mons`; do
+for mon_dims in `~/dotfiles/scripts/active_mons`; do
+    mon=${mon_dims%%:*}
+    dims=${mon_dims#*:}
+    if [ -z "$prev_mon" ]; then
+        xrandr --output $mon --primary --mode $dims
+    else
+        xrandr --output $mon --right-of $prev_mon --mode $dims
+    fi
     bspc monitor $mon -d I II III
+    prev_mon=$mon
 done
 
 bspc config focus_follows_pointer true
