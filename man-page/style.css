@@ -44,8 +44,8 @@ a:hover {
 }
 
 .row {
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
     display: flex;
     flex-wrap: wrap;
     width: 100%;
@@ -76,6 +76,8 @@ a:hover {
     display: flex;
     font-size: 18px;
     flex-wrap: wrap;
+    margin-top: 10px;
+    margin-bottom: 10px;
     width: 100%;
     flex: 1 1 0%;
 }

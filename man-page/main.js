@@ -8,8 +8,8 @@ function date() {
     gebi("date").innerHTML = now.toLocaleDateString("en-UK", options);
 }
 
-function weather( town ) {
-    fetch("https://wttr.in/" + town + "?format=%l+-+%C,+%t")
+function weather(town) {
+    fetch("https://wttr.in/" + town + "?0")
         .then(response => response.text())
         .then(text => {
             document.getElementById("weather").innerHTML = text;
