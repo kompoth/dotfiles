@@ -8,7 +8,7 @@ for mon_dims in `~/dotfiles/scripts/active_mons`; do
     if [ -z "$prev_mon" ]; then
         xrandr --output $mon --primary --mode $dims
     else
-        xrandr --output $mon --right-of $prev_mon --mode $dims
+        xrandr --output $mon --right-of $prev_mon --mode 1920x1080
     fi
     bspc monitor $mon -d I II III
     prev_mon=$mon
