@@ -17,7 +17,7 @@ super + Return
     urxvt
 
 # Screenshot with maim
-super + Print
+super + {Print,S}
     maim -so ~/screenshots/$(date +%F-%T).png
 
 # Show indicators
