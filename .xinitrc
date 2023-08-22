@@ -13,7 +13,7 @@ PIDS=$(pgrep umess; pgrep ubatloop)
 ~/dotfiles/scripts/ubatloop &
 
 # root color, Xresources, initial cursor fix
-xsetroot -solid '#121212'
+xsetroot -solid '#0AAEB3'
 xrdb -merge ~/.Xresources
 xsetroot -cursor_name left_ptr
 

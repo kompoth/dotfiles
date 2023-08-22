@@ -15,7 +15,8 @@ for mon_dims in `~/.local/bin/active_mons`; do
 done
 
 bspc config focus_follows_pointer true
-bspc config border_width 2
-bspc config window_gap 5
+bspc config border_width 5
+bspc config window_gap 0
+bspc config honor_size_hints false
 
 bspc rule -a Matplotlib state=floating
