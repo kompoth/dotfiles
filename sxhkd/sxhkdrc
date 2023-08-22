@@ -8,7 +8,7 @@ super + Escape
 
 # Program launcher
 super + d
-    ~/dotfiles/scripts/dmenu_run_history \
+    ~/.local/bin/dmenu_run_history \
         -b -fn 'Iosevka:size=14' \
         -nf '#918175' -nb '#121212' \ 
         -sf '#121212' -sb '#98bc37' 
@@ -18,19 +18,19 @@ super + Return
 
 # Screenshot with maim
 super + {Print,S}
-    maim -so ~/screenshots/$(date +%F-%T).png
+    maim -so ~/Media/screenshots/$(date +%F-%T).png
 
 # Show indicators
 super + {t,b}
-    ~/dotfiles/scripts/uinfo -{t,b}
+    ~/.local/bin/uinfo -{t,b}
 
 # Volume control
 XF86Audio{LowerVolume,RaiseVolume,Mute}
-    pamixer {-d 5,-i 5,--toggle-mute} && ~/dotfiles/scripts/uinfo -v
+    pamixer {-d 5,-i 5,--toggle-mute} && ~/.local/bin/uinfo -v
 
 # Backlight control
 XF86MonBrightness{Down,Up}
-    brightnessctl s {50-,+50} && ~/dotfiles/scripts/uinfo -bl
+    brightnessctl s {50-,+50} && ~/.local/bin/uinfo -bl
 
 # Halve active window
 # Both my monitors are 1920x1080. 

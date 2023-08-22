@@ -4,6 +4,7 @@ CURDIR=`pwd`
 
 TILDA=".Xresources .xinitrc .bashrc .vimrc"
 CONFIG="zathura sxhkd bspwm"
+BIN="uinfo ubatloop dmenu_run_history active_mons"
 
 printhelp()
 {
@@ -22,6 +23,11 @@ if [[ "$1" =~ ^("-c"|"-i")$ ]]; then
   for f in $CONFIG ; do
     [ -L ~/.config/$f ] && rm -r ~/.config/$f && echo "removed $f"
     [ "$1" == "-i" ] && ln -s $CURDIR/$f ~/.config/$f && echo "linked $f"
+  done
+
+  for f in $BIN ; do
+    [ -L ~/.local/bin/$f ] && rm -r ~/.local/bin/$f && echo "removed $f"
+    [ "$1" == "-i" ] && ln -s $CURDIR/scripts/$f ~/.local/bin/$f && echo "linked $f"
   done
   
 elif [[ "$1" =~ ^("-e")$ ]]; then

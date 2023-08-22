@@ -2,7 +2,7 @@
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 
-for mon_dims in `~/dotfiles/scripts/active_mons`; do
+for mon_dims in `~/.local/bin/active_mons`; do
     mon=${mon_dims%%:*}
     dims=${mon_dims#*:}
     if [ -z "$prev_mon" ]; then
@@ -18,4 +18,4 @@ bspc config focus_follows_pointer true
 bspc config border_width 2
 bspc config window_gap 5
 
-bspc rule -a org.remmina.Remmina state=floating
+bspc rule -a Matplotlib state=floating
