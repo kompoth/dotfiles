@@ -1,0 +1,24 @@
+destinations:
+  - target_dir: $HOME
+    source_dir: .
+    files:
+    - .Xresources
+    - .xinitrc
+    - .bashrc
+    - .vimrc
+  - target_dir: $HOME/.config
+    source_dir: .
+    files:
+    - zathura
+    - sxhkd
+    - bspwm
+  - target_dir: $HOME/.local/bin
+    source_dir: ./scripts
+    files:
+    - uinfo
+    - ubatloop
+    - dmenu_run_history
+    - active_mons
+downloads:
+  - url: https://raw.githubusercontent.com/srcery-colors/srcery-vim/master/colors/srcery.vim
+    target_dir: $HOME/.vim/colors
