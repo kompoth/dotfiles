@@ -46,7 +46,7 @@ esac
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt
-#force_color_prompt=yes
+force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
@@ -81,7 +81,6 @@ if [ "$color_prompt" = yes ]; then
       else
         py_env="${c_blue1}(`basename $VIRTUAL_ENV`) "
       fi
-      
       
       PS1="$py_env${c_green1}\t ${c_blue1}\w $branch$njobs${c_green1}>${c_end} "
     }

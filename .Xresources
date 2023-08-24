@@ -3,9 +3,6 @@ urxvt*font: xft:Iosevka Term:size=14
 urxvt*scrollBar: false
 urxvt*cursorBlink: 1
 
-! fixing issue: https://bbs.archlinux.org/viewtopic.php?id=282791
-urxvt.geometry: 400x400
-
 ! zooming
 !URxvt.perl-ext-common:  font-size
 !URxvt.keysym.C-minus:   font-size:decrease
