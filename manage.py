@@ -1,8 +1,8 @@
 import os
-import errno
 from pathlib import Path
 from urllib.parse import urlparse
 from typing_extensions import Annotated
+from git import Repo
 
 import typer
 import yaml
@@ -20,12 +20,22 @@ def load_config(config_path):
     return cfg
 
 
-def silent_delete(path):
-    try:
-        os.remove(path)
-    except OSError as ex:
-        if ex.errno != errno.ENOENT:
-            raise ex
+def delete(path):
+    if path.is_symlink():
+        path.unlink()
+        print(f"Deleted symlink {path}")
+    elif path.is_file():
+        path.unlink()
+        print(f"Deleted file {path}")
+    elif path.is_dir():
+        for file in path.rglob("*"):
+            delete(file)
+        path.rmdir()
+        print(f"Deleted directory {path}")
+    elif not path.exists():
+        print(f"Object {path} doesn't exist")
+    else:
+        ValueError("Can't determine object type: {path}")
 
 
 def resolve_path(path):
@@ -39,15 +49,19 @@ def deploy(
     config_path: Annotated[str, config_annotation] = "./config_manage.yml"
 ):
     cfg = load_config(config_path)
-    for destination in cfg["destinations"]:
+
+    for destination in cfg.get("destinations", []):
         target = resolve_path(destination["target_dir"])
         source = resolve_path(destination["source_dir"])
         target.mkdir(parents=True, exist_ok=True)
         for file in destination["files"]:
-            silent_delete(target / file)
+            path = target / file
+            if path.exists():
+                delete(path)
             os.symlink(source / file, target / file)
             print(f"Symlink: {(target / file)} -> {(source / file)}")
-    for load in cfg["downloads"]:
+
+    for load in cfg.get("downloads", []):
         target = resolve_path(load["target_dir"])
         target.mkdir(parents=True, exist_ok=True)
         url = load["url"]
@@ -56,22 +70,35 @@ def deploy(
         open(target / file, "wb").write(resp.content)
         print(f"Downloaded: {target / file}")
 
+    for repo in cfg.get("repos", []):
+        target = resolve_path(repo["target_dir"])
+        url = repo["url"]
+        if target.exists():
+            print(f"Repo exists: {target}")
+        else:
+            gitrepo = Repo.clone_from(url, target)
+            print(f"Cloned: {gitrepo.working_tree_dir}")
+
 
 @app.command()
 def clean(
     config_path: Annotated[str, config_annotation] = "./config_manage.yml"
 ):
     cfg = load_config(config_path)
-    for destination in cfg["destinations"]:
+
+    for destination in cfg.get("destinations", []):
         target = resolve_path(destination["target_dir"])
         for file in destination["files"]:
-            silent_delete(target / file)
-            print(f"Removed: {target / file}")
-    for load in cfg["downloads"]:
+            delete(target / file)
+
+    for load in cfg.get("downloads", []):
         target = resolve_path(load["target_dir"])
         file = urlparse(load["url"]).path.split("/")[-1]
-        silent_delete(target / file)
-        print(f"Removed: {target / file}")
+        delete(target / file)
+
+    for repo in cfg.get("repos", []):
+        target = resolve_path(repo["target_dir"])
+        delete(target)
 
 
 if __name__ == "__main__":

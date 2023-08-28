@@ -24,3 +24,6 @@ downloads:
     target_dir: $HOME/.vim/colors
   - url: https://raw.githubusercontent.com/majutsushi/urxvt-font-size/master/font-size 
     target_dir: $HOME/.urxvt/ext
+repos:
+  - url: git@github.com:nvie/vim-flake8.git
+    target_dir: $HOME/.vim/pack/flake8/start/vim-flake8
