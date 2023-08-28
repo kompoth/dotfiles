@@ -1,13 +1,13 @@
 Xft.dpi: 100
-urxvt*font: xft:Iosevka Term:size=14
+urxvt*font: xft:Iosevka Term:size=13
 urxvt*scrollBar: false
 urxvt*cursorBlink: 1
 
 ! zooming
-!URxvt.perl-ext-common:  font-size
-!URxvt.keysym.C-minus:   font-size:decrease
-!URxvt.keysym.C-plus:    font-size:increase
-!URxvt.keysym.C-equal:   font-size:reset
+URxvt.perl-ext-common:  font-size
+URxvt.keysym.C-minus:   font-size:decrease
+URxvt.keysym.C-plus:    font-size:increase
+URxvt.keysym.C-equal:   font-size:reset
 
 ! disable ctrl+shift binding
 URxvt.iso14755: false
@@ -21,27 +21,6 @@ urxvt.keysym.C-Right:  \033[1;5C
 
 Xcursor.size: 32
 Xcursor.theme: Simp1e-Adw-Dark
-
-! Atom One Light theme
-!urxvt*background: #f9f9f9
-!urxvt*foreground: #383a42
-!urxvt*cursorColor: #d0d0d0
-!urxvt*color0: #000000
-!urxvt*color1: #E45649
-!urxvt*color2: #50A14F
-!urxvt*color3: #986801
-!urxvt*color4: #4078F2
-!urxvt*color5: #A626A4
-!urxvt*color6: #0184BC
-!urxvt*color7: #A0A1A7
-!urxvt*color8: #5c6370
-!urxvt*color9: #e06c75
-!urxvt*color10: #50A14F
-!urxvt*color11: #986801
-!urxvt*color12: #4078F2
-!urxvt*color13: #A626A4
-!urxvt*color14: #0184BC
-!urxvt*color15: #ffffff
 
 ! srcery theme
 ! special
@@ -72,35 +51,3 @@ urxvt*color14:  #2BE4D0
 ! white
 urxvt*color7:   #BAA67F
 urxvt*color15:  #FCE8C3
-
-
-!! Gruvbox Dark
-!! hard contrast: 
-!!urxvt*background: #1d2021
-!urxvt*background: #282828
-!! soft contrast: urxvt*background: #32302f
-!urxvt*foreground: #ebdbb2
-!! Black + DarkGrey
-!urxvt*color0:  #282828
-!urxvt*color8:  #928374
-!! DarkRed + Red
-!urxvt*color1:  #cc241d
-!urxvt*color9:  #fb4934
-!! DarkGreen + Green
-!urxvt*color2:  #98971a
-!urxvt*color10: #b8bb26
-!! DarkYellow + Yellow
-!urxvt*color3:  #d79921
-!urxvt*color11: #fabd2f
-!! DarkBlue + Blue
-!urxvt*color4:  #458588
-!urxvt*color12: #83a598
-!! DarkMagenta + Magenta
-!urxvt*color5:  #b16286
-!urxvt*color13: #d3869b
-!! DarkCyan + Cyan
-!urxvt*color6:  #689d6a
-!urxvt*color14: #8ec07c
-!! LightGrey + White
-!urxvt*color7:  #a89984
-!urxvt*color15: #ebdbb2
