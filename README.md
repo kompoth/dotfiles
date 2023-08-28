@@ -32,7 +32,7 @@ Use `install` script to put all files in places.
 ### urxvt
 
 I use rxvt-unicode-9.30 currently. Version 9.31 has some issues:
-- In tiling mode new window is created with blank lines. [Workaround](https://wiki.archlinux.org/title/rxvt-unicode#Wrong_window_geometry)
+- In tiling mode new window is created with blank lines. See [workaround](https://wiki.archlinux.org/title/rxvt-unicode#Wrong_window_geometry).
 - With fix above window gets unreasonable dimensions in floating mode.
 
 To get dynamic font size changing in urxvt I use [this plugin](https://github.com/majutsushi/urxvt-font-size).
