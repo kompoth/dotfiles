@@ -22,3 +22,5 @@ destinations:
 downloads:
   - url: https://raw.githubusercontent.com/srcery-colors/srcery-vim/master/colors/srcery.vim
     target_dir: $HOME/.vim/colors
+  - url: https://raw.githubusercontent.com/majutsushi/urxvt-font-size/master/font-size 
+    target_dir: $HOME/.urxvt/ext
