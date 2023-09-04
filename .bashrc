@@ -144,5 +144,6 @@ fi
 # To autostart ssh-agent
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
-# Enable Go
+# Modify PATH
 export PATH="$PATH:/usr/local/go/bin"
+export PATH="/home/kmiziz/.local/bin:$PATH"

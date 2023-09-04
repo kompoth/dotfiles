@@ -40,7 +40,11 @@ autocmd FileType tex setlocal spell
 " Splits
 set splitbelow
 set splitright
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+nnoremap <leader><Down> <C-W><C-J>
+nnoremap <leader><Up> <C-W><C-K>
+nnoremap <leader><Right> <C-W><C-L>
+nnoremap <leader><Left> <C-W><C-H>
+
+" flake8
+autocmd FileType python map <buffer> <C-F> :call flake8#Flake8()<CR>
+let g:flake8_cmd="/usr/bin/flake8"
