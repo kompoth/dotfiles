@@ -14,6 +14,10 @@ set cursorline
 " Indentation
 set shiftwidth=4
 set softtabstop=4
+autocmd FileType html setlocal shiftwidth=2
+autocmd FileType html setlocal softtabstop=2
+autocmd FileType css setlocal shiftwidth=2
+autocmd FileType css setlocal softtabstop=2
 set expandtab
 set nosmarttab
 set autoindent
@@ -26,8 +30,6 @@ set ignorecase
 
 " Python settings
 "autocmd FileType python setlocal list lcs=tab:>-,space:·
-autocmd FileType python setlocal shiftwidth=4
-autocmd FileType python setlocal softtabstop=4
 
 " Enable wrapping for tex files
 autocmd FileType tex setlocal wrap linebreak

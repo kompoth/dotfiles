@@ -10,7 +10,7 @@ setxkbmap -device 10 -layout us,ru -option grp:win_space_toggle
 # start batloop
 PIDS=$(pgrep umess; pgrep ubatloop)
 [ ! -z "$PIDS" ] && kill $PIDS
-~/dotfiles/scripts/ubatloop &
+~/.local/bin/ubatloop &
 
 # root color, Xresources, initial cursor fix
 xsetroot -solid '#0AAEB3'
