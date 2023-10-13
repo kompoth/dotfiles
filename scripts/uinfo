@@ -33,4 +33,4 @@ case $1 in
     ;;
 esac
 
-(echo $STRING; sleep $TIME) | umess -b -f $FONT -F $FG -B $BG 
+(echo $STRING; sleep $TIME) | umess -b -f $FONT -F $FG -B $BG $2 
