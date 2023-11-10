@@ -48,9 +48,9 @@ XF86MonBrightness{Down,Up}
 super + alt + {q,r}
     bspc {quit,wm -r}
 
-# close and kill node
-super + {_,shift + }w
-    bspc node -{c,k}
+# close node
+super + shift + w
+    bspc node -c
 
 # set the window state
 super + f

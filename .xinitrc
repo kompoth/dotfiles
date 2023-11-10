@@ -13,8 +13,8 @@ PIDS=$(pgrep umess; pgrep ubatloop)
 ~/.local/bin/ubatloop &
 
 # root color, Xresources, initial cursor fix
-xsetroot -solid '#0AAEB3'
-feh --no-fehbg --bg-center --image-bg '#0AAEB3' '/home/kmiziz/Media/wp.jpg' 
+# xsetroot -solid '#0AAEB3'
+feh --no-fehbg --bg-center --image-bg '#121212' '/home/kmiziz/Media/wp.jpg' 
 xrdb -merge ~/.Xresources
 xsetroot -cursor_name left_ptr
 

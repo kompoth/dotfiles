@@ -3,6 +3,8 @@ urxvt*font: xft:Iosevka Term:size=13
 urxvt*scrollBar: false
 urxvt*cursorBlink: 1
 
+URxvt.geometry: 400x400
+
 ! zooming
 URxvt.perl-ext-common:  font-size
 URxvt.keysym.C-minus:   font-size:decrease
