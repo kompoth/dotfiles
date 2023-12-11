@@ -1,5 +1,5 @@
 Xft.dpi: 100
-urxvt*font: xft:Iosevka Term:size=13
+urxvt*font: xft:Iosevka Term Extended:size=13
 urxvt*scrollBar: false
 urxvt*cursorBlink: 1
 
