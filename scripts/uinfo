@@ -2,9 +2,9 @@
 # Some basic umess notifications.
 # Author: Vasily Negrebetskiy
 
-FONT="Iosevka:size=16"
-FG="#1c1b19"
-BG="#98bc37"
+FONT="Iosevka Term Extended:size=14"
+FG="#1C1B19"
+BG="#FBB829"
 TIME=4
 
 PIDS=$(pgrep umess)
@@ -33,4 +33,4 @@ case $1 in
     ;;
 esac
 
-(echo $STRING; sleep $TIME) | umess -b -f $FONT -F $FG -B $BG $2 
+(echo $STRING; sleep $TIME) | umess -b -f "$FONT" -F $FG -B $BG $2 
