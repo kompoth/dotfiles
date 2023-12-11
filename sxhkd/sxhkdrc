@@ -9,7 +9,7 @@ super + Escape
 # Program launcher
 super + d
     ~/.local/bin/dmenu_run_history \
-        -b -fn 'Iosevka:size=14' \
+        -b -fn 'Iosevka Term Extended:size=14' \
         -nf '#918175' -nb '#121212' \ 
         -sf '#121212' -sb '#98bc37' 
 
