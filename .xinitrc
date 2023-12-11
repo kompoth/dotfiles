@@ -4,8 +4,7 @@
 xset b off
 
 # setup keyboards
-setxkbmap -device 17 -layout us,ru -model pc105 -option grp:win_space_toggle
-setxkbmap -device 10 -layout us,ru -option grp:win_space_toggle
+~/.local/bin/kbd_setup.sh
 
 # start batloop
 PIDS=$(pgrep umess; pgrep ubatloop)

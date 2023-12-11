@@ -19,6 +19,7 @@ destinations:
     - ubatloop
     - dmenu_run_history
     - active_mons
+    - kbd_setup.sh
 downloads:
   - url: https://raw.githubusercontent.com/srcery-colors/srcery-vim/master/colors/srcery.vim
     target_dir: $HOME/.vim/colors
