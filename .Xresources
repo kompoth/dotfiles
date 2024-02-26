@@ -1,55 +1,61 @@
-Xft.dpi: 100
-urxvt*font: xft:Iosevka Term Extended:size=13
-urxvt*scrollBar: false
-urxvt*cursorBlink: 1
+xft.dpi:    100
 
-URxvt.geometry: 400x400
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!   urxvt configuration   !!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+urxvt*font:             xft:Iosevka Term Extended:size=13
+urxvt*scrollBar:        false
+urxvt*cursorBlink:      1
+
+! see https://forums.freebsd.org/threads/changed-behavior-in-rxvt-unicode-between-9-30-and-9-31.87711/#post-594943
+urxvt.geometry: 	400x400
 
 ! zooming
-URxvt.perl-ext-common:  font-size
-URxvt.keysym.C-minus:   font-size:decrease
-URxvt.keysym.C-plus:    font-size:increase
-URxvt.keysym.C-equal:   font-size:reset
+urxvt.perl-ext-common:  font-size
+urxvt.keysym.C-minus:   font-size:decrease
+urxvt.keysym.C-plus:    font-size:increase
+urxvt.keysym.C-equal:   font-size:reset
 
 ! disable ctrl+shift binding
-URxvt.iso14755: false
-URxvt.iso14755_52: false
+urxvt.iso14755:         false
+urxvt.iso14755_52:      false
 
 ! fixes ctrl+arrows issues
-urxvt.keysym.C-Up:     \033[1;5A
-urxvt.keysym.C-Down:   \033[1;5B
-urxvt.keysym.C-Left:   \033[1;5D
-urxvt.keysym.C-Right:  \033[1;5C
+urxvt.keysym.C-Up:      \033[1;5A
+urxvt.keysym.C-Down:    \033[1;5B
+urxvt.keysym.C-Left:    \033[1;5D
+urxvt.keysym.C-Right:   \033[1;5C
 
-Xcursor.size: 32
-Xcursor.theme: Simp1e-Adw-Dark
+Xcursor.size:           32
+Xcursor.theme:          Simp1e-Adw-Dark
 
 ! srcery theme
 ! special
-urxvt*background: #1C1B19
-urxvt*foreground: #FCE8C3
-urxvt*cursorColor: #FBB829
+urxvt*background:       #121212
+urxvt*foreground:       #FCE8C3
+urxvt*cursorColor:      #FBB829
 ! black
-urxvt*color0:   #1C1B19
-urxvt*color8:   #918175
+urxvt*color0:           #1C1B19
+urxvt*color8:           #918175
 ! red
-urxvt*color1:   #EF2F27
-urxvt*color9:   #F75341
+urxvt*color1:           #EF2F27
+urxvt*color9:           #F75341
 ! green
-urxvt*color2:   #519F50
-urxvt*color10:  #98BC37
+urxvt*color2:           #519F50
+urxvt*color10:          #98BC37
 ! yellow
-urxvt*color3:   #FBB829
-urxvt*color11:  #FED06E
+urxvt*color3:           #FBB829
+urxvt*color11:          #FED06E
 ! blue
-urxvt*color4:   #2C78BF
-urxvt*color12:  #68A8E4
+urxvt*color4:           #2C78BF
+urxvt*color12:          #68A8E4
 ! magenta
-urxvt*color5:   #E02C6D
-urxvt*color13:  #FF5C8F
+urxvt*color5:           #E02C6D
+urxvt*color13:          #FF5C8F
 ! cyan
-urxvt*color6:   #0AAEB3
-urxvt*color14:  #2BE4D0
+urxvt*color6:           #0AAEB3
+urxvt*color14:          #2BE4D0
 ! white
-urxvt*color7:   #BAA67F
-urxvt*color15:  #FCE8C3
+urxvt*color7:           #BAA67F
+urxvt*color15:          #FCE8C3
