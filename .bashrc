@@ -148,5 +148,8 @@ export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 export PATH="$PATH:/usr/local/go/bin"
 export PATH="/home/kmiziz/.local/bin:$PATH"
 
-# Use vim as EDITOR
-export EDITOR=vim
+# Use neovim as EDITOR
+export EDITOR=nvim
+alias vim="nvim"
+alias vi="nvim"
+
