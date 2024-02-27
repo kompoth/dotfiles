@@ -1,20 +1,22 @@
-vim.cmd([[
-    set number
-    set encoding=utf-8
-    set clipboard+=unnamedplus
-    set termguicolors
-    colorscheme srcery
-]])
-
-vim.opt.tabstop     = 4
-vim.opt.shiftwidth  = 4
-vim.bo.softtabstop  = 4
-vim.opt.expandtab   = true
-vim.opt.smarttab    = true
-
+-- Set default encoding
+vim.opt.encoding="utf-8"
+-- Make line numbers default
+vim.opt.number = true
+-- Sync clipboard between OS and Neovim.
+vim.opt.clipboard = 'unnamedplus'
+-- Highlight current line number
 vim.opt.cursorline = true
+vim.opt.cursorlineopt = 'number'
+-- Case-insensitive searching UNLESS \C or capital in search
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+-- Keep signcolumn on by default
+vim.opt.signcolumn = 'yes'
+-- Use srcery colors
+vim.cmd('colorscheme srcery')
 
-require('lualine').setup {
+-- Setup fancy status line
+require('lualine').setup({
     options = {
         icons_enabled           = false,
         globalstatus            = true,
@@ -30,9 +32,11 @@ require('lualine').setup {
             lualine_z = {'location'}
         }
     }
-}
+})
 
-require('colorizer').setup {
+-- Show hex colors (termguicolors must be enabled)
+vim.opt.termguicolors = true
+require('colorizer').setup({
     filetypes = {'*'},
     user_default_options = {
         RGB         = true,
@@ -40,4 +44,13 @@ require('colorizer').setup {
         RRGGBBAA    = true,
         names       = false
     }
-}
+})
+
+-- Git diff and merge view
+require("diffview").setup({
+    use_icons = false
+})
+
+-- Start Python LSP
+require('lspconfig').pylsp.setup({})
+-- For Python-specific config see ftplugin/python.lua
