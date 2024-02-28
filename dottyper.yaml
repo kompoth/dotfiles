@@ -1,0 +1,31 @@
+symlinks:
+  - destination: $HOME
+    files:
+    - .Xresources
+    - .xinitrc
+    - .bashrc
+    - .vimrc
+  - destination: $HOME/.config
+    files:
+    - config/zathura
+    - config/sxhkd
+    - config/bspwm
+    - config/nvim
+  - destination: $HOME/.local/bin
+    files:
+    - scripts/uinfo
+    - scripts/ubatloop
+    - scripts/dmenu_run_history
+    - scripts/active_mons
+    - scripts/kbd_setup.sh
+downloads:
+  - destination: $HOME/.urxvt/ext
+    urls:
+    - https://raw.githubusercontent.com/majutsushi/urxvt-font-size/master/font-size 
+repos:
+  - destination: $HOME/.local/share/nvim/site/pack/plugins/start
+    github:
+    - nvim-lualine/lualine.nvim
+    - marko-cerovac/material.nvim
+    - NvChad/nvim-colorizer.lua
+    - neovim/nvim-lspconfig.git
