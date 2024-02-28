@@ -1,86 +1,75 @@
 from typing_extensions import Annotated
 from git import Repo
-import typer
+from typer import Typer, Option
 import requests
 import os
 
 from .config import Config
+from .utils import delete
 
-app = typer.Typer()
-config_annotation = typer.Option(
-    "--config", help="Path to the configuration"
-)
-
-
-# TODO move to utils
-def delete(path):
-    if path.is_symlink():
-        path.unlink()
-        print(f"Deleted symlink {path}")
-    elif path.is_file():
-        path.unlink()
-        print(f"Deleted file {path}")
-    elif path.is_dir():
-        for file in path.rglob("*"):
-            delete(file)
-        path.rmdir()
-        print(f"Deleted directory {path}")
-    elif not path.exists():
-        print(f"Object {path} doesn't exist")
-    else:
-        ValueError(f"Can't determine object type: {path}")
+app = Typer()
+config_annotation = Annotated[str, Option(help="Path to the configuration")]
 
 
 @app.command()
 def deploy(
-    config_path: Annotated[str, config_annotation] = "./dottyper.yaml"
+    config: config_annotation = "./dottyper.yaml",
+    force: Annotated[bool, Option(help="Overwrite existing files")] = False,
+    verbose: Annotated[bool, Option(help="Print detailed output")] = False
 ):
-    cfg = Config(config_path)
+    cfg = Config(config)
 
     for source, target in cfg.get_symlinks():
-        # TODO if exists: default - warn and continue; force - overwrite
         if target.exists():
-            delete(target)
+            if force:
+                delete(target)
+            else:
+                continue
         target.parents[0].mkdir(parents=True, exist_ok=True)
         os.symlink(source, target)
-        print(f"Symlink: {source} -> {target}")
+        print(f"Symlink created: {target}")
 
     for url, target in cfg.get_downloads():
-        # TODO if exists: default - warn and continue; force - overwrite
         # TODO use aiohttp
+        if target.exists() and not force:
+            continue
         target.parents[0].mkdir(parents=True, exist_ok=True)
         resp = requests.get(url, allow_redirects=True)
         open(target, "wb").write(resp.content)
-        print(f"Downloaded: {target}")
+        print(f"Downloaded file: {target}")
 
     for url, target in cfg.get_repos():
         target.parents[0].mkdir(parents=True, exist_ok=True)
-        # TODO if exists: default - warn and continue; force - pull
         # TODO tags and specific commits
         # TODO gitlab support
-        # TODO can we make is async?
+        # TODO can we make it async?
         if target.exists():
-            print(f"Repo already cloned: {url}")
-        else:
-            print(f"Cloning: {url}")
-            gitrepo = Repo.clone_from(url, target)
-            print(f"Cloned: {gitrepo.working_tree_dir}")
+            if force:
+                delete(target)
+            else:
+                continue
+        gitrepo = Repo.clone_from(url, target)
+        print(f"Repo cloned: {gitrepo.working_tree_dir}")
 
 
 @app.command()
 def clean(
-    config_path: Annotated[str, config_annotation] = "./dottyper.yaml"
+    config: config_annotation = "./dottyper.yaml",
+    verbose: Annotated[bool, Option(help="Print detailed output")] = False
 ):
-    cfg = Config(config_path)
+    cfg = Config(config)
 
     for source, target in cfg.get_symlinks():
         delete(target)
+        print(f"Deleted {target}")
 
     for url, target in cfg.get_downloads():
         delete(target)
+        print(f"Deleted {target}")
 
     for url, target in cfg.get_repos():
         delete(target)
+        print(f"Deleted {target}")
 
 
 if __name__ == "__main__":
