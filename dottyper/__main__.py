@@ -1,11 +1,10 @@
-import os
-from pathlib import Path
-from urllib.parse import urlparse
 from typing_extensions import Annotated
 from git import Repo
 import typer
-import yaml
 import requests
+import os
+
+from .config import Config
 
 app = typer.Typer()
 config_annotation = typer.Option(
@@ -13,12 +12,7 @@ config_annotation = typer.Option(
 )
 
 
-def load_config(config_path):
-    with open(config_path, "r") as fd:
-        cfg = yaml.safe_load(fd)
-    return cfg
-
-
+# TODO move to utils
 def delete(path):
     if path.is_symlink():
         path.unlink()
@@ -37,74 +31,56 @@ def delete(path):
         ValueError(f"Can't determine object type: {path}")
 
 
-def resolve_path(path):
-    for var, value in os.environ.items():
-        path = path.replace(f"${var}", value)
-    return Path(path).resolve()
-
-
 @app.command()
 def deploy(
     config_path: Annotated[str, config_annotation] = "./dottyper.yaml"
 ):
-    cfg = load_config(config_path)
+    cfg = Config(config_path)
 
-    for directory in cfg.get("symlinks", []):
-        target_dir = resolve_path(directory["destination"])
-        target_dir.mkdir(parents=True, exist_ok=True)
-        for source_file in directory["files"]:
-            source_path = resolve_path(source_file)
-            target_path = target_dir / source_path.name
-            if target_path.exists():
-                delete(target_path)
-            os.symlink(source_path, target_path)
-            print(f"Symlink: {source_path} -> {target_path}")
+    for source, target in cfg.get_symlinks():
+        # TODO if exists: default - warn and continue; force - overwrite
+        if target.exists():
+            delete(target)
+        target.parents[0].mkdir(parents=True, exist_ok=True)
+        os.symlink(source, target)
+        print(f"Symlink: {source} -> {target}")
 
-    for directory in cfg.get("downloads", []):
-        target_dir = resolve_path(directory["destination"])
-        target_dir.mkdir(parents=True, exist_ok=True)
-        for url in directory["urls"]:
-            file_name = urlparse(url).path.split("/")[-1]
-            resp = requests.get(url, allow_redirects=True)
-            open(target_dir / file_name, "wb").write(resp.content)
-            print(f"Downloaded: {target_dir / file_name}")
+    for url, target in cfg.get_downloads():
+        # TODO if exists: default - warn and continue; force - overwrite
+        # TODO use aiohttp
+        target.parents[0].mkdir(parents=True, exist_ok=True)
+        resp = requests.get(url, allow_redirects=True)
+        open(target, "wb").write(resp.content)
+        print(f"Downloaded: {target}")
 
-    for directory in cfg.get("repos", []):
-        target_dir = resolve_path(directory["destination"])
-        for repo in directory["github"]:
-            repo_url = "https://github.com/" + repo
-            repo_name = repo.split("/")[-1]
-            repo_dir = target_dir / repo_name
-            if repo_dir.exists():
-                print(f"Repo already cloned: {repo}")
-            else:
-                gitrepo = Repo.clone_from(repo_url, repo_dir)
-                print(f"Cloned: {gitrepo.working_tree_dir}")
+    for url, target in cfg.get_repos():
+        target.parents[0].mkdir(parents=True, exist_ok=True)
+        # TODO if exists: default - warn and continue; force - pull
+        # TODO tags and specific commits
+        # TODO gitlab support
+        # TODO can we make is async?
+        if target.exists():
+            print(f"Repo already cloned: {url}")
+        else:
+            print(f"Cloning: {url}")
+            gitrepo = Repo.clone_from(url, target)
+            print(f"Cloned: {gitrepo.working_tree_dir}")
 
 
 @app.command()
 def clean(
     config_path: Annotated[str, config_annotation] = "./dottyper.yaml"
 ):
-    cfg = load_config(config_path)
+    cfg = Config(config_path)
 
-    for directory in cfg.get("symlinks", []):
-        target_dir = resolve_path(directory["destination"])
-        for source_file in directory["files"]:
-            source_path = resolve_path(source_file)
-            delete(target_dir / source_path.name)
+    for source, target in cfg.get_symlinks():
+        delete(target)
 
-    for directory in cfg.get("downloads", []):
-        target_dir = resolve_path(directory["destination"])
-        for url in directory["urls"]:
-            file_name = urlparse(url).path.split("/")[-1]
-            delete(target_dir / file_name)
+    for url, target in cfg.get_downloads():
+        delete(target)
 
-    for directory in cfg.get("repos", []):
-        target_dir = resolve_path(directory["destination"])
-        for repo in directory["github"]:
-            repo_name = repo.split("/")[-1]
-            delete(target_dir / repo_name)
+    for url, target in cfg.get_repos():
+        delete(target)
 
 
 if __name__ == "__main__":
