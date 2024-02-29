@@ -3,8 +3,8 @@
 # Author: Vasily Negrebetskiy
 
 FONT="Iosevka Term Extended:size=14"
-FG="#1C1B19"
-BG="#FBB829"
+FG="#282828"
+BG="#fabd2f"
 TIME=4
 
 PIDS=$(pgrep umess)

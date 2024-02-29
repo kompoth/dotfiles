@@ -2,6 +2,8 @@
 vim.opt.encoding="utf-8"
 -- Make line numbers default
 vim.opt.number = true
+-- Disable line wrap 
+vim.opt.wrap = false
 -- Sync clipboard between OS and Neovim.
 vim.opt.clipboard = 'unnamedplus'
 -- Highlight current line number
@@ -13,17 +15,10 @@ vim.opt.smartcase = true
 -- Keep signcolumn on by default
 vim.opt.signcolumn = 'yes'
 -- Set colorscheme 
-vim.g.material_style = "darker"
-require('material').setup({
-    contrast = {
-        floating_windows = true
-    },
-    high_visibility = {
-        darker = true
-    },
+require("gruvbox").setup({
+	contrast="hard"
 })
-vim.cmd('colorscheme material')
-
+vim.cmd('colorscheme gruvbox')
 
 -- Setup fancy status line
 require('lualine').setup({
@@ -44,15 +39,16 @@ require('lualine').setup({
 })
 
 -- Show hex colors (termguicolors must be enabled)
---require('colorizer').setup({
---    filetypes = {'*'},
---    user_default_options = {
---        RGB         = true,
---        RRGGBB      = true,
---        RRGGBBAA    = true,
---        names       = false
---    }
---})
+vim.opt.termguicolors = true
+require('colorizer').setup({
+    filetypes = {'*'},
+    user_default_options = {
+        RGB         = true,
+        RRGGBB      = true,
+        RRGGBBAA    = true,
+        names       = false
+    }
+})
 
 -- Git diff and merge view
 require("diffview").setup({

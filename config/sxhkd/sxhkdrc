@@ -10,8 +10,8 @@ super + Escape
 super + d
     ~/.local/bin/dmenu_run_history \
         -b -fn 'Iosevka Term Extended:size=14' \
-        -nf '#918175' -nb '#121212' \ 
-        -sf '#121212' -sb '#98bc37' 
+        -nf '#928374' -nb '#1d2021' \ 
+        -sf '#1d2021' -sb '#fabd2f' 
 
 super + Return
     urxvt

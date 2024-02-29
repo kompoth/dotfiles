@@ -61,28 +61,38 @@ fi
 
 if [ "$color_prompt" = yes ]; then
     function set_prompt() {
-      local c_red0="\[\e[00;31m\]"
-      local c_green1="\[\e[01;32m\]"
-      local c_yellow1="\[\e[01;33m\]"
-      local c_cyan1="\[\e[00;36m\]"
-      local c_blue1="\[\e[01;34m\]"
-      local c_white0="\[\e[00;37m\]"
+      local c_0red="\[\e[00;31m\]"
+      local c_0green="\[\e[00;32m\]"
+      local c_0yellow="\[\e[00;33m\]"
+      local c_0blue="\[\e[00;34m\]"
+      local c_0magenta="\[\e[00;35m\]"
+      local c_0cyan="\[\e[00;36m\]"
+      local c_0white="\[\e[00;37m\]"
+
+      local c_1red="\[\e[01;31m\]"
+      local c_1green="\[\e[01;32m\]"
+      local c_1yellow="\[\e[01;33m\]"
+      local c_1blue="\[\e[01;34m\]"
+      local c_1magenta="\[\e[01;35m\]"
+      local c_1cyan="\[\e[01;36m\]"
+      local c_1white="\[\e[01;37m\]"
+      
       local c_end="\[\e[m\]"
       
       local njobs=$(jobs -p | wc -l)
-      [[ $njobs = 0 ]] && njobs="" || njobs="${c_red0}$njobs "
+      [[ $njobs = 0 ]] && njobs="" || njobs="${c_1red}$njobs "
       
       local branch=$(git branch 2> /dev/null | perl -ne '/^\*\s(.+)/ && print "[$1] "')
-      branch="${c_yellow1}$branch"
+      branch="${c_1blue}$branch"
      
       local py_env=""
       if test -z "$VIRTUAL_ENV"; then
         py_env=""
       else
-        py_env="${c_blue1}(`basename $VIRTUAL_ENV`) "
+        py_env="${c_1blue}(`basename $VIRTUAL_ENV`) "
       fi
       
-      PS1="$py_env${c_green1}\t ${c_blue1}\w $branch$njobs${c_green1}>${c_end} "
+      PS1="$py_env${c_1yellow}\t ${c_0green}\w $branch$njobs${c_1yellow}>${c_end} "
     }
     PROMPT_COMMAND=set_prompt
 else

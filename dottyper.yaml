@@ -25,6 +25,7 @@ downloads:
 repos:
   - destination: $HOME/.local/share/nvim/site/pack/plugins/start
     github:
+    - ellisonleao/gruvbox.nvim
     - nvim-lualine/lualine.nvim
     - marko-cerovac/material.nvim
     - NvChad/nvim-colorizer.lua
