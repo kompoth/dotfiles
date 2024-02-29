@@ -83,13 +83,13 @@ if [ "$color_prompt" = yes ]; then
       [[ $njobs = 0 ]] && njobs="" || njobs="${c_1red}$njobs "
       
       local branch=$(git branch 2> /dev/null | perl -ne '/^\*\s(.+)/ && print "[$1] "')
-      branch="${c_1blue}$branch"
+      branch="${c_0cyan}$branch"
      
       local py_env=""
       if test -z "$VIRTUAL_ENV"; then
         py_env=""
       else
-        py_env="${c_1blue}(`basename $VIRTUAL_ENV`) "
+        py_env="${c_0blue}(`basename $VIRTUAL_ENV`) "
       fi
       
       PS1="$py_env${c_1yellow}\t ${c_0green}\w $branch$njobs${c_1yellow}>${c_end} "
