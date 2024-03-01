@@ -55,6 +55,18 @@ require("diffview").setup({
     use_icons = false
 })
 
+-- Setup split management
+require('smart-splits').setup({
+	resize_mode = {
+		resize_keys = {"<Left>", "<Down>", "<Up>", "<Right>"}
+	}
+})
+vim.keymap.set('n', '<C-Left>', require('smart-splits').resize_left)
+vim.keymap.set('n', '<C-Down>', require('smart-splits').resize_down)
+vim.keymap.set('n', '<C-Up>', require('smart-splits').resize_up)
+vim.keymap.set('n', '<C-Right>', require('smart-splits').resize_right)
+vim.keymap.set('n', '<C-p>', require('smart-splits').start_resize_mode)
+
 -- Start Python LSP
 require('lspconfig').pylsp.setup({})
 -- For Python-specific config see ftplugin/python.lua

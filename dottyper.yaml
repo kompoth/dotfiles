@@ -30,3 +30,4 @@ repos:
     - marko-cerovac/material.nvim
     - NvChad/nvim-colorizer.lua
     - neovim/nvim-lspconfig.git
+    - mrjones2014/smart-splits.nvim
