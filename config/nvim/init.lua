@@ -14,6 +14,13 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 -- Keep signcolumn on by default
 vim.opt.signcolumn = 'yes'
+-- Indents
+vim.opt_local.expandtab = true
+vim.opt_local.autoindent = true
+vim.opt_local.smarttab = true
+vim.opt_local.shiftwidth = 4
+vim.opt_local.tabstop = 4
+vim.opt_local.softtabstop = 4
 -- Set colorscheme 
 require("gruvbox").setup({
 	contrast="hard"
@@ -61,11 +68,11 @@ require('smart-splits').setup({
 		resize_keys = {"<Left>", "<Down>", "<Up>", "<Right>"}
 	}
 })
-vim.keymap.set('n', '<C-Left>', require('smart-splits').resize_left)
-vim.keymap.set('n', '<C-Down>', require('smart-splits').resize_down)
-vim.keymap.set('n', '<C-Up>', require('smart-splits').resize_up)
-vim.keymap.set('n', '<C-Right>', require('smart-splits').resize_right)
-vim.keymap.set('n', '<C-p>', require('smart-splits').start_resize_mode)
+vim.keymap.set('n', '<A-Left>', require('smart-splits').resize_left)
+vim.keymap.set('n', '<A-Down>', require('smart-splits').resize_down)
+vim.keymap.set('n', '<A-Up>', require('smart-splits').resize_up)
+vim.keymap.set('n', '<A-Right>', require('smart-splits').resize_right)
+vim.keymap.set('n', '<A-p>', require('smart-splits').start_resize_mode)
 
 -- Start Python LSP
 require('lspconfig').pylsp.setup({})
