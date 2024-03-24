@@ -12,12 +12,11 @@ PIDS=$(pgrep umess; pgrep ubatloop)
 ~/.local/bin/ubatloop &
 
 # root color, Xresources, initial cursor fix
-# xsetroot -solid '#0AAEB3'
-feh --no-fehbg --bg-center --image-bg '#121212' '/home/kmiziz/Media/wp.jpg' 
+feh --no-fehbg --bg-center --image-bg '#121212' '/home/kmiziz/Media/wp.jpg' --xinerama-index 0 
 xrdb -merge ~/.Xresources
 xsetroot -cursor_name left_ptr
 
 # start hotkey daemon and wm
 sxhkd &
 exec bspwm
-#exec evilwm -term urxvt -bw 5 -fg '#98BC37' -fc '#0AAEB3' -bg '#918175'
+#exec evilwm -term urxvt -snap 5 -fg '#a89984' -fc '#cc241d' -bg '#928374'

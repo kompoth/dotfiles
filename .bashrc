@@ -80,10 +80,10 @@ if [ "$color_prompt" = yes ]; then
       local c_end="\[\e[m\]"
       
       local njobs=$(jobs -p | wc -l)
-      [[ $njobs = 0 ]] && njobs="" || njobs="${c_1red}$njobs "
+      [[ $njobs = 0 ]] && njobs="" || njobs="${c_0red}$njobs "
       
       local branch=$(git branch 2> /dev/null | perl -ne '/^\*\s(.+)/ && print "[$1] "')
-      branch="${c_0cyan}$branch"
+      branch="${c_0green}$branch"
      
       local py_env=""
       if test -z "$VIRTUAL_ENV"; then
@@ -92,7 +92,7 @@ if [ "$color_prompt" = yes ]; then
         py_env="${c_0blue}(`basename $VIRTUAL_ENV`) "
       fi
       
-      PS1="$py_env${c_1yellow}\t ${c_0green}\w $branch$njobs${c_1yellow}>${c_end} "
+      PS1="$py_env${c_1yellow}\t ${c_0cyan}\w $branch$njobs${c_1yellow}>${c_end} "
     }
     PROMPT_COMMAND=set_prompt
 else
