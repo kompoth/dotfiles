@@ -1,26 +1,33 @@
 -- Set default encoding
 vim.opt.encoding="utf-8"
+
 -- Make line numbers default
 vim.opt.number = true
+
 -- Disable line wrap 
 vim.opt.wrap = false
+
 -- Sync clipboard between OS and Neovim.
 vim.opt.clipboard = 'unnamedplus'
+
 -- Highlight current line number
 vim.opt.cursorline = true
 vim.opt.cursorlineopt = 'number'
+
 -- Case-insensitive searching UNLESS \C or capital in search
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
+
 -- Keep signcolumn on by default
 vim.opt.signcolumn = 'yes'
+
 -- Indents
-vim.opt_local.expandtab = true
-vim.opt_local.autoindent = true
-vim.opt_local.smarttab = true
-vim.opt_local.shiftwidth = 4
-vim.opt_local.tabstop = 4
-vim.opt_local.softtabstop = 4
+vim.opt.tabstop = 4
+vim.opt.smartindent = true
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
+vim.opt.softtabstop = 4
+
 -- Set colorscheme 
 require("gruvbox").setup({
 	contrast="hard"

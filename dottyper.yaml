@@ -11,6 +11,8 @@ symlinks:
     - config/sxhkd
     - config/bspwm
     - config/nvim
+    - config/gtk-3.0
+    - config/gtk-4.0
   - destination: $HOME/.local/bin
     files:
     - scripts/uinfo

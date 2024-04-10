@@ -12,13 +12,13 @@ Requires Python >= 3.11.
 ```bash
 python -m venv venv
 pip install -r requirements.txt
-python manage.py deploy
+python -m dottyper deploy
 deactivate
 ```
 
-Edit `config_manage.yml` to config dotfiles deployment.
+Edit `dottyper.yml` to config dotfiles deployment.
 
-Use `python manage.py clean` to remove installation.
+Use `python -m dottyper clean` to remove installation.
 
 ### Old script
 
