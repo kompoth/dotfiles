@@ -26,3 +26,5 @@ bspc config honor_size_hints false
 bspc config normal_border_color \#7c6f64
 bspc config active_border_color \#928374
 bspc config focused_border_color \#a89984
+
+bspc rule -a feh state=floating

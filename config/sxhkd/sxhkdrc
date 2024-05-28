@@ -14,11 +14,11 @@ super + d
         -sf '#1d2021' -sb '#fabd2f' 
 
 super + Return
-    urxvt
+    alacritty
 
 # Screenshot with maim
 super + {Print,S}
-    maim -so ~/Media/screenshots/$(date +%F-%T).png
+    maim -so ~/Pictures/screenshots/$(date +%F-%T).png
 
 # Show indicators
 super + {t,b}

@@ -9,7 +9,7 @@ urxvt*scrollBar:        false
 urxvt*cursorBlink:      1
 
 ! see https://forums.freebsd.org/threads/changed-behavior-in-rxvt-unicode-between-9-30-and-9-31.87711/#post-594943
-!urxvt.geometry: 	400x400
+urxvt.geometry: 	400x400
 
 ! zooming
 urxvt.perl-ext-common:  font-size
