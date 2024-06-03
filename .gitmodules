@@ -2,3 +2,16 @@
 	path = repos/gruvbox.nvim
 	url = git@github.com:ellisonleao/gruvbox.nvim.git
 	branch = main
+[submodule "repos/lualine.nvim"]
+	path = repos/lualine.nvim
+	url = git@github.com:nvim-lualine/lualine.nvim
+	branch = master
+[submodule "repos/nvim-colorizer.lua"]
+	path = repos/nvim-colorizer.lua
+	url = git@github.com:NvChad/nvim-colorizer.lua
+[submodule "repos/nvim-lspconfig"]
+	path = repos/nvim-lspconfig
+	url = git@github.com:neovim/nvim-lspconfig.git
+[submodule "repos/smart-splits.nvim"]
+	path = repos/smart-splits.nvim
+	url = git@github.com:mrjones2014/smart-splits.nvim
