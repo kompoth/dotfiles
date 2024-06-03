@@ -1,8 +1,9 @@
-import yaml
+import os
+from pathlib import Path
 from typing import Optional
 from urllib.parse import urlparse
-from pathlib import Path
-import os
+
+import yaml
 
 ENV_VARS = os.environ.items()
 

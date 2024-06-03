@@ -37,8 +37,3 @@ downloads:
   - destination: $HOME/.urxvt/ext
     urls:
     - https://raw.githubusercontent.com/majutsushi/urxvt-font-size/master/font-size 
-  - destination: $HOME/Downloads
-    urls:
-    - https://langa.pl/crawl/10
-    - https://langa.pl/crawl/0
-    - https://langa.pl/crawl/00
