@@ -1,14 +1,26 @@
 from typing_extensions import Annotated
-from git import Repo
 from typer import Typer, Option
 import requests
 import os
 
 from .config import Config
-from .utils import delete
 
 app = Typer()
 config_annotation = Annotated[str, Option(help="Path to the configuration")]
+
+
+def delete(path):
+    if path.is_symlink() or path.is_file():
+        path.unlink()
+    if path.is_dir():
+        for file in path.rglob("*"):
+            delete(file)
+        path.rmdir()
+    elif not path.exists():
+        # TODO some logging
+        pass
+    else:
+        ValueError(f"Can't determine object type: {path}")
 
 
 @app.command()
@@ -38,19 +50,6 @@ def deploy(
         open(target, "wb").write(resp.content)
         print(f"Downloaded file: {target}")
 
-    for url, target in cfg.get_repos():
-        target.parents[0].mkdir(parents=True, exist_ok=True)
-        # TODO tags and specific commits
-        # TODO gitlab support
-        # TODO can we make it async?
-        if target.exists():
-            if force:
-                delete(target)
-            else:
-                continue
-        gitrepo = Repo.clone_from(url, target)
-        print(f"Repo cloned: {gitrepo.working_tree_dir}")
-
 
 @app.command()
 def clean(
@@ -64,10 +63,6 @@ def clean(
         print(f"Deleted {target}")
 
     for url, target in cfg.get_downloads():
-        delete(target)
-        print(f"Deleted {target}")
-
-    for url, target in cfg.get_repos():
         delete(target)
         print(f"Deleted {target}")
 

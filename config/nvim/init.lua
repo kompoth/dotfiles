@@ -64,11 +64,6 @@ require('colorizer').setup({
     }
 })
 
--- Git diff and merge view
-require("diffview").setup({
-    use_icons = false
-})
-
 -- Setup split management
 require('smart-splits').setup({
 	resize_mode = {

@@ -1,37 +1,44 @@
 symlinks:
-  - destination: $HOME
+  - destination: $HOME 
+    location: $HOME/Documents/repos/dotfiles/
     files:
     - .Xresources
     - .xinitrc
     - .bashrc
     - .vimrc
   - destination: $HOME/.config
+    location: $HOME/Documents/repos/dotfiles/config
     files:
-    - config/zathura
-    - config/sxhkd
-    - config/bspwm
-    - config/nvim
-    - config/gtk-3.0
-    - config/gtk-4.0
-    - config/alacritty
-    - config/lsd
+    - zathura
+    - sxhkd
+    - bspwm
+    - nvim
+    - gtk-3.0
+    - gtk-4.0
+    - alacritty
+    - lsd
   - destination: $HOME/.local/bin
+    location: $HOME/Documents/repos/dotfiles/scripts
     files:
-    - scripts/uinfo
-    - scripts/ubatloop
-    - scripts/dmenu_run_history
-    - scripts/active_mons
-    - scripts/kbd_setup.sh
+    - uinfo
+    - ubatloop
+    - dmenu_run_history
+    - active_mons
+    - kbd_setup.sh
+  - destination: $HOME/.local/share/nvim/site/pack/plugins/start
+    location: $HOME/Documents/repos/dotfiles/repos
+    files:
+    - gruvbox.nvim
+    - lualine.nvim
+    - nvim-colorizer.lua
+    - nvim-lspconfig
+    - smart-splits.nvim
 downloads:
   - destination: $HOME/.urxvt/ext
     urls:
     - https://raw.githubusercontent.com/majutsushi/urxvt-font-size/master/font-size 
-repos:
-  - destination: $HOME/.local/share/nvim/site/pack/plugins/start
-    github:
-    - ellisonleao/gruvbox.nvim
-    - nvim-lualine/lualine.nvim
-    - marko-cerovac/material.nvim
-    - NvChad/nvim-colorizer.lua
-    - neovim/nvim-lspconfig.git
-    - mrjones2014/smart-splits.nvim
+  - destination: $HOME/Downloads
+    urls:
+    - https://langa.pl/crawl/10
+    - https://langa.pl/crawl/0
+    - https://langa.pl/crawl/00
