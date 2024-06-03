@@ -14,34 +14,34 @@ class Config:
 
     @staticmethod
     def get_symlinks():
-        symlinks = []
+        symlinks = set()
         for directory in Config._CONFIG.get("symlinks", []):
             target_dir = resolve_path(directory["destination"])
             for source_file in directory["files"]:
                 source = resolve_path(source_file)
                 target = target_dir / source.name
-                symlinks.append((source, target))
+                symlinks.add((source, target))
         return symlinks
 
     @staticmethod
     def get_downloads():
-        downloads = []
+        downloads = set()
         for directory in Config._CONFIG.get("downloads", []):
             target_dir = resolve_path(directory["destination"])
             for url in directory["urls"]:
                 file_name = urlparse(url).path.split("/")[-1]
                 target = target_dir / file_name
-                downloads.append((url, target))
+                downloads.add((url, target))
         return downloads
 
     @staticmethod
     def get_repos():
-        repos = []
+        repos = set()
         for directory in Config._CONFIG.get("repos", []):
             target_dir = resolve_path(directory["destination"])
             for gh_path in directory["github"]:
                 repo_url = "https://github.com/" + gh_path
                 repo_name = gh_path.split("/")[-1]
                 target = target_dir / repo_name
-                repos.append((repo_url, target))
+                repos.add((repo_url, target))
         return repos

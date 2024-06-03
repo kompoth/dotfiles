@@ -2,7 +2,7 @@ live_config_reload = false
 
 [font]
 normal = { family = "Iosevka Term Extended" }
-size = 12
+size = 10
 
 # Colors (Gruvbox Material Medium Dark)
 
