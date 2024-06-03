@@ -1,0 +1,3 @@
+[submodule "repos/gruvbox.nvim"]
+	path = repos/gruvbox.nvim
+	url = git@github.com:ellisonleao/gruvbox.nvim.git
