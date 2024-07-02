@@ -15,3 +15,6 @@
 [submodule "repos/smart-splits.nvim"]
 	path = repos/smart-splits.nvim
 	url = git@github.com:mrjones2014/smart-splits.nvim
+[submodule "repos/vimwiki"]
+	path = repos/vimwiki
+	url = git@github.com:vimwiki/vimwiki.git
