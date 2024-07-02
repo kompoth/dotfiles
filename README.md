@@ -4,28 +4,7 @@ My configuration files for Linux.
 
 ## Installation
 
-### New script
-
-It's more reliable, easier to maintain and configure, but maybe it doesn't worth it ...
-
-Requires Python >= 3.11.
-```bash
-python -m venv venv
-pip install -r requirements.txt
-python -m dottyper deploy
-deactivate
-```
-
-Edit `dottyper.yml` to config dotfiles deployment.
-
-Use `python -m dottyper clean` to remove installation.
-
-### Old script
-
-Use `install` script to put all files in places.
-- -i option creates neccessary links
-- -e option loads external repos and scripts
-- -c cleans links
+I use my tool [Dottyper](https://github.com/kompoth/dottyper) to manage this stuff.
 
 ## Notes
 
