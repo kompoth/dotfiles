@@ -18,3 +18,4 @@
 [submodule "repos/vimwiki"]
 	path = repos/vimwiki
 	url = git@github.com:vimwiki/vimwiki.git
+	branch = master
