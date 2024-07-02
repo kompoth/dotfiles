@@ -2,10 +2,6 @@
 	path = repos/gruvbox.nvim
 	url = git@github.com:ellisonleao/gruvbox.nvim.git
 	branch = main
-[submodule "repos/lualine.nvim"]
-	path = repos/lualine.nvim
-	url = git@github.com:nvim-lualine/lualine.nvim
-	branch = master
 [submodule "repos/nvim-colorizer.lua"]
 	path = repos/nvim-colorizer.lua
 	url = git@github.com:NvChad/nvim-colorizer.lua
@@ -19,3 +15,6 @@
 	path = repos/vimwiki
 	url = git@github.com:vimwiki/vimwiki.git
 	branch = master
+[submodule "repos/lualine.nvim"]
+	path = repos/lualine.nvim
+	url = git@github.com:nvim-lualine/lualine.nvim.git

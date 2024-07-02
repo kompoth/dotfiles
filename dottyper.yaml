@@ -33,6 +33,7 @@ symlinks:
     - nvim-colorizer.lua
     - nvim-lspconfig
     - smart-splits.nvim
+    - vimwiki 
 downloads:
   - destination: $HOME/.urxvt/ext
     urls:
