@@ -8,17 +8,6 @@ I use my tool [Dottyper](https://github.com/kompoth/dottyper) to manage this stu
 
 ## Notes
 
-### urxvt
-
-I use [rxvt-unicode-9.30](http://cvs.schmorp.de/rxvt-unicode/?pathrev=rxvt-unicode-rel-9_30)
-currently. Version 9.31 has some issues:
-- In tiling mode new window is created with blank lines. See [workaround](https://wiki.archlinux.org/title/rxvt-unicode#Wrong_window_geometry).
-- With fix above window gets unreasonable dimensions in floating mode.
-
-To get dynamic font size changing in urxvt I use [this plugin](https://github.com/majutsushi/urxvt-font-size).
-It works great in tiling mode, but in floating mode it also changes window dimensions.
-To fix that you'll have to apply [this patch](https://github.com/majutsushi/urxvt-font-size/issues/10#issuecomment-813040385).
-
 ### Fonts
 
 I prefere to use [Iosevka Term Extended](https://typeof.net/Iosevka/) in terminal.
