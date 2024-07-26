@@ -4,7 +4,7 @@ symlinks:
     files:
     #- .Xresources
     #- .xinitrc
-    #- .bashrc
+    - .bashrc
     #- .vimrc
     - .gitconfig
   - destination: $HOME/.config
@@ -26,12 +26,3 @@ symlinks:
     #  - dmenu_run_history
     #  - active_mons
     #  - kbd_setup.sh
-  - destination: $HOME/.local/share/nvim/site/pack/plugins/start
-    location: $HOME/Documents/repos/dotfiles/nvim-plugs
-    files:
-    - gruvbox.nvim
-    - lualine.nvim
-    - nvim-colorizer.lua
-    - nvim-lspconfig
-    - smart-splits.nvim
-    - diffview.nvim
