@@ -1,40 +1,28 @@
 symlinks:
   - destination: $HOME 
-    location: $HOME/Documents/repos/dotfiles/
+    location: $HOME/Documents/repos/dotfiles/home
     files:
-    - .Xresources
-    - .xinitrc
+    #- .Xresources
+    #- .xinitrc
     - .bashrc
-    - .vimrc
+    #- .vimrc
+    - .gitconfig
   - destination: $HOME/.config
     location: $HOME/Documents/repos/dotfiles/config
     files:
-    - zathura
-    - sxhkd
-    - bspwm
+    #- zathura
+    #- sxhkd
+    #- bspwm
     - nvim
-    - gtk-3.0
-    - gtk-4.0
+    #- gtk-3.0
+    #- gtk-4.0
     - alacritty
     - lsd
-  - destination: $HOME/.local/bin
-    location: $HOME/Documents/repos/dotfiles/scripts
-    files:
-    - uinfo
-    - ubatloop
-    - dmenu_run_history
-    - active_mons
-    - kbd_setup.sh
-  - destination: $HOME/.local/share/nvim/site/pack/plugins/start
-    location: $HOME/Documents/repos/dotfiles/repos
-    files:
-    - gruvbox.nvim
-    - lualine.nvim
-    - nvim-colorizer.lua
-    - nvim-lspconfig
-    - smart-splits.nvim
-    - vimwiki 
-downloads:
-  - destination: $HOME/.urxvt/ext
-    urls:
-    - https://raw.githubusercontent.com/majutsushi/urxvt-font-size/master/font-size 
+    #- destination: $HOME/.local/bin
+    #  location: $HOME/Documents/repos/dotfiles/scripts
+    #  files:
+    #  - uinfo
+    #  - ubatloop
+    #  - dmenu_run_history
+    #  - active_mons
+    #  - kbd_setup.sh

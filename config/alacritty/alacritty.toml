@@ -1,7 +1,7 @@
 live_config_reload = false
 
 [font]
-normal = { family = "Iosevka Term Extended" }
+normal = { family = "Zed Mono Nerd Font Mono" }
 size = 10
 
 # Colors (Gruvbox Material Medium Dark)
