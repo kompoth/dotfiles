@@ -6,7 +6,6 @@ symlinks:
     #- .xinitrc
     - .bashrc
     #- .vimrc
-    - .gitconfig
   - destination: $HOME/.config
     location: $HOME/Documents/repos/dotfiles/config
     files:
