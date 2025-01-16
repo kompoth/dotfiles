@@ -18,3 +18,6 @@ vim.opt.softtabstop = 4
 vim.g.mapleader = '<Space>'
 
 require("config.lazy")
+
+-- When all plugins are configured, start neo-tree
+vim.cmd("Neotree")
