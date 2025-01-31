@@ -35,5 +35,5 @@ white   = '#d4be98'
 [env]
 WINIT_X11_SCALE_FACTOR = "1.2"
 
-[general]
-live_config_reload = false
+# [general]
+# live_config_reload = false
