@@ -39,7 +39,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
      
     -- Rename the symbol inside current buffer 
-    vim.keymap.set('n', '<space>rn', vim.lsp.buf.rnname, opts)
+    vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
     
     -- Show symbol usage in the project
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
@@ -47,6 +47,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', 'gs', vim.lsp.buf.signature_help, opts)
  
     -- Show diagnostics message
-    vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
+    vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
   end
 })
