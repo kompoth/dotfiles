@@ -54,5 +54,14 @@ vim.api.nvim_create_autocmd("LspAttach", {
         
         -- Format the whole buffer (in normal mode) or the selection (in visual mode) 
         vim.keymap.set({"n", "v"}, "<space>f", vim.lsp.buf.format, opts)
+
+        -- Show code actions menu
+        vim.keymap.set(
+            {"n", "v"}, "<space>ca",
+            function()
+                vim.lsp.buf.code_action({apply=true})
+            end,
+            opts
+        )
     end
 })
