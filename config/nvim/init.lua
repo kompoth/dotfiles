@@ -15,7 +15,7 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.softtabstop = 4
 
--- vim.lsp.set_log_level("debug")
+vim.lsp.set_log_level("debug")
 
 -- Make sure to setup `mapleader` and `maplocalleader` before
 -- loading lazy.nvim so that mappings are correct.
@@ -51,6 +51,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
         
         -- Show diagnostics message
         vim.keymap.set("n", "<space>e", vim.diagnostic.open_float, opts)
+
+        -- Go to next diagnostics message
+        vim.keymap.set("n", "<space>n", vim.diagnostic.goto_next, opts)
         
         -- Format the whole buffer (in normal mode) or the selection (in visual mode) 
         vim.keymap.set({"n", "v"}, "<space>f", vim.lsp.buf.format, opts)
@@ -59,7 +62,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
         vim.keymap.set(
             {"n", "v"}, "<space>ca",
             function()
-                vim.lsp.buf.code_action({apply=true})
+                vim.lsp.buf.code_action()
             end,
             opts
         )
