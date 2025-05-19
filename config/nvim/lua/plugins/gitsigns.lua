@@ -30,9 +30,9 @@ return {
                 end
 
                 -- Actions
-                map("n", "<leader>gs", gitsigns.stage_hunk)
-                map("n", "<leader>gS", gitsigns.stage_buffer)
-                map("v", "<leader>gs", function() gitsigns.stage_hunk {vim.fn.line("."), vim.fn.line("v")} end)
+                map("n", "<leader>hs", gitsigns.stage_hunk)
+                map("n", "<leader>hS", gitsigns.stage_buffer)
+                map('n', '<leader>hr', gitsigns.reset_hunk)
             end
         })
     end

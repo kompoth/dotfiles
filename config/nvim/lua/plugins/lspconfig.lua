@@ -22,6 +22,7 @@ return {
 
                         -- Disable linters and formatters
                         pyflakes = { enabled = false },
+                        pycodestyle = { enabled = false },
                         mccabe = { enabled = false },
                         yapf = { enabled = false },
                         autopep8 = { enabled = false },

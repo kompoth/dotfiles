@@ -59,12 +59,18 @@ vim.api.nvim_create_autocmd("LspAttach", {
         vim.keymap.set({"n", "v"}, "<space>f", vim.lsp.buf.format, opts)
 
         -- Show code actions menu
-        vim.keymap.set(
-            {"n", "v"}, "<space>ca",
-            function()
-                vim.lsp.buf.code_action()
-            end,
-            opts
-        )
+        vim.keymap.set({ "v", "n" }, "<leader>ca", require("actions-preview").code_actions)
+
+        -- Run tests
+        vim.keymap.set({ "n" }, "<leader>tr", require("neotest").run.run)
+        local test_file = function()
+            require("neotest").run.run(vim.fn.expand("%"))
+        end
+        vim.keymap.set({ "n" }, "<leader>tR", test_file)
+
+        -- Show test summary window 
+        vim.keymap.set({ "n" }, "<leader>tS", require("neotest").summary.open)
     end
 })
+
+vim.api.nvim_set_hl(0, "StatusLineNC", {})
