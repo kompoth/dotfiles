@@ -8,12 +8,18 @@ return {
         "nvim-neotest/neotest-python",
     },
     config = function()
+        require("nvim-treesitter.configs").setup {
+            ensure_installed = { "python" },
+        }
+
+
         require("neotest").setup({
             output = { open_on_run = true },
             adapters = {
                 require("neotest-python")({
                     log_level = vim.log.levels.DEBUG,
                     runner = "pytest",
+                    python = ".venv/bin/python",
                 }),
             }
         })
