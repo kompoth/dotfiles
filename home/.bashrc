@@ -82,8 +82,16 @@ if [ "$color_prompt" = yes ]; then
       local njobs=$(jobs -p | wc -l)
       [[ $njobs = 0 ]] && njobs="" || njobs="${c_0red}$njobs "
       
-      local branch=$(git branch 2> /dev/null | perl -ne '/^\*\s(.+)/ && print "[$1] "')
-      branch="${c_0green}$branch"
+      local branch=""
+      if git rev-parse --git-dir > /dev/null 2>&1; then 
+        local branch_name=$(git branch 2> /dev/null | perl -ne '/^\*\s(.+)/ && print "$1"')
+        if [[ `git status --porcelain` ]]; then
+          local c_git=$c_0magenta
+        else
+          local c_git=$c_0green
+        fi
+        branch="${c_git} $branch_name "
+      fi
      
       local py_env=""
       if test -z "$VIRTUAL_ENV"; then
