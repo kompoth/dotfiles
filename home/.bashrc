@@ -61,46 +61,46 @@ fi
 
 if [ "$color_prompt" = yes ]; then
     function set_prompt() {
-      local c_0red="\[\e[00;31m\]"
-      local c_0green="\[\e[00;32m\]"
-      local c_0yellow="\[\e[00;33m\]"
-      local c_0blue="\[\e[00;34m\]"
-      local c_0magenta="\[\e[00;35m\]"
-      local c_0cyan="\[\e[00;36m\]"
-      local c_0white="\[\e[00;37m\]"
+        local c_0red="\[\e[00;31m\]"
+        local c_0green="\[\e[00;32m\]"
+        local c_0yellow="\[\e[00;33m\]"
+        local c_0blue="\[\e[00;34m\]"
+        local c_0magenta="\[\e[00;35m\]"
+        local c_0cyan="\[\e[00;36m\]"
+        local c_0white="\[\e[00;37m\]"
 
-      local c_1red="\[\e[01;31m\]"
-      local c_1green="\[\e[01;32m\]"
-      local c_1yellow="\[\e[01;33m\]"
-      local c_1blue="\[\e[01;34m\]"
-      local c_1magenta="\[\e[01;35m\]"
-      local c_1cyan="\[\e[01;36m\]"
-      local c_1white="\[\e[01;37m\]"
-      
-      local c_end="\[\e[m\]"
-      
-      local njobs=$(jobs -p | wc -l)
-      [[ $njobs = 0 ]] && njobs="" || njobs="${c_0red}$njobs "
-      
-      local branch=""
-      if git rev-parse --git-dir > /dev/null 2>&1; then 
-        local branch_name=$(git branch 2> /dev/null | perl -ne '/^\*\s(.+)/ && print "$1"')
-        if [[ `git status --porcelain` ]]; then
-          local c_git=$c_0magenta
-        else
-          local c_git=$c_0green
+        local c_1red="\[\e[01;31m\]"
+        local c_1green="\[\e[01;32m\]"
+        local c_1yellow="\[\e[01;33m\]"
+        local c_1blue="\[\e[01;34m\]"
+        local c_1magenta="\[\e[01;35m\]"
+        local c_1cyan="\[\e[01;36m\]"
+        local c_1white="\[\e[01;37m\]"
+        
+        local c_end="\[\e[m\]"
+        
+        local njobs=$(jobs -p | wc -l)
+        [[ $njobs = 0 ]] && njobs="" || njobs="${c_0red}$njobs "
+        
+        local branch=""
+        if git rev-parse --git-dir > /dev/null 2>&1; then 
+            local branch_name=$(git rev-parse --abbrev-ref HEAD 2> /dev/null)
+            if [[ `git status --porcelain` ]]; then
+                local c_git=$c_0magenta
+            else
+                local c_git=$c_0green
+            fi
+            branch="${c_git} $branch_name "
         fi
-        branch="${c_git} $branch_name "
-      fi
-     
-      local py_env=""
-      if test -z "$VIRTUAL_ENV"; then
-        py_env=""
-      else
-        py_env="${c_0blue}(`basename $VIRTUAL_ENV`) "
-      fi
-      
-      PS1="$py_env${c_1yellow}\t ${c_0cyan}\W $branch$njobs${c_1yellow}>${c_end} "
+       
+        local py_env=""
+        if test -z "$VIRTUAL_ENV"; then
+            py_env=""
+        else
+            py_env="${c_0blue}(`basename $VIRTUAL_ENV`) "
+        fi
+        
+        PS1="$py_env${c_1yellow}\t ${c_0cyan}\W $branch$njobs${c_1yellow}>${c_end} "
     }
     PROMPT_COMMAND=set_prompt
 else
