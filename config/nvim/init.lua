@@ -70,6 +70,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
         -- Show test summary window 
         vim.keymap.set({ "n" }, "<leader>tS", require("neotest").summary.open)
+
+        -- Show test output float 
+        vim.keymap.set({ "n" }, "<leader>to", require("neotest").output.open)
+
+        -- Show test output window 
+        vim.keymap.set({ "n" }, "<leader>tO", require("neotest").output_panel.open)
     end
 })
 
