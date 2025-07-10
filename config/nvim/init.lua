@@ -61,7 +61,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
         -- Show code actions menu
         vim.keymap.set({ "v", "n" }, "<leader>ca", require("actions-preview").code_actions)
 
-<<<<<<< HEAD
         -- Run tests
         vim.keymap.set({ "n" }, "<leader>tr", require("neotest").run.run)
         local test_file = function()
@@ -77,24 +76,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
         -- Show test output window 
         vim.keymap.set({ "n" }, "<leader>tO", require("neotest").output_panel.open)
-||||||| parent of fc20e0c (dap)
-        -- Run tests
-        vim.keymap.set({ "n" }, "<leader>tr", require("neotest").run.run)
-        local test_file = function()
-            require("neotest").run.run(vim.fn.expand("%"))
-        end
-        vim.keymap.set({ "n" }, "<leader>tR", test_file)
-
-        -- Show test summary window 
-        vim.keymap.set({ "n" }, "<leader>tS", require("neotest").summary.open)
-=======
         vim.keymap.set({ "n" }, "<leader>db", require("dap").toggle_breakpoint)
         vim.keymap.set({ "n" }, "<leader>dc", require("dap").continue)
         vim.keymap.set({ "n" }, "<leader>dT", require("dap").terminate)
         vim.keymap.set({ "n" }, "<leader>ds", require("dap").step_over)
         vim.keymap.set({ "n" }, "<leader>dS", require("dap").step_into)
         vim.keymap.set({ "n" }, "<leader>dO", require("dap").step_out)
->>>>>>> fc20e0c (dap)
     end
 })
 
