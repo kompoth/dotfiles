@@ -18,6 +18,7 @@ return {
             adapters = {
                 require("neotest-python")({
                     log_level = vim.log.levels.DEBUG,
+                    args = {"-xs"},
                     runner = "pytest",
                     python = ".venv/bin/python",
                 }),
