@@ -28,11 +28,12 @@ return {
                     opts.buffer = bufnr
                     vim.keymap.set(mode, l, r, opts)
                 end
-
+ 
                 -- Actions
                 map("n", "<leader>hs", gitsigns.stage_hunk)
                 map("n", "<leader>hS", gitsigns.stage_buffer)
-                map('n', '<leader>hr', gitsigns.reset_hunk)
+                map("n", '<leader>hr', gitsigns.reset_hunk)
+                map("n", '<leader>hd', gitsigns.preview_hunk_inline)
             end
         })
     end

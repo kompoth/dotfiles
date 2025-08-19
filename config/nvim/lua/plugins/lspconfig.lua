@@ -31,8 +31,8 @@ return {
                         yapf = { enabled = false },
                         autopep8 = { enabled = false },
 
-                        -- For type checking 
-                        pylsp_mypy = {enabled = true},
+                        -- For type checking (disabled by now) 
+                        pylsp_mypy = { enabled = false },
 
                         -- My experimental plugin
                         starkiller = {

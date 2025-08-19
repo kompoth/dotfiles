@@ -7,6 +7,7 @@ vim.opt.cursorlineopt = "number"
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.signcolumn = "yes"
+vim.api.nvim_set_option("clipboard", "unnamed")
 
 -- Indents
 vim.opt.tabstop = 4
@@ -60,28 +61,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
         -- Show code actions menu
         vim.keymap.set({ "v", "n" }, "<leader>ca", require("actions-preview").code_actions)
-
-        -- Run tests
-        vim.keymap.set({ "n" }, "<leader>tr", require("neotest").run.run)
-        local test_file = function()
-            require("neotest").run.run(vim.fn.expand("%"))
-        end
-        vim.keymap.set({ "n" }, "<leader>tR", test_file)
-
-        -- Show test summary window 
-        vim.keymap.set({ "n" }, "<leader>tS", require("neotest").summary.open)
-
-        -- Show test output float 
-        vim.keymap.set({ "n" }, "<leader>to", require("neotest").output.open)
-
-        -- Show test output window 
-        vim.keymap.set({ "n" }, "<leader>tO", require("neotest").output_panel.open)
-        vim.keymap.set({ "n" }, "<leader>db", require("dap").toggle_breakpoint)
-        vim.keymap.set({ "n" }, "<leader>dc", require("dap").continue)
-        vim.keymap.set({ "n" }, "<leader>dT", require("dap").terminate)
-        vim.keymap.set({ "n" }, "<leader>ds", require("dap").step_over)
-        vim.keymap.set({ "n" }, "<leader>dS", require("dap").step_into)
-        vim.keymap.set({ "n" }, "<leader>dO", require("dap").step_out)
     end
 })
 
