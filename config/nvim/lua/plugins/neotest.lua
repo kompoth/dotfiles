@@ -12,13 +12,13 @@ return {
             ensure_installed = { "python" },
         }
 
-
         require("neotest").setup({
             output = { open_on_run = true },
             adapters = {
                 require("neotest-python")({
                     log_level = vim.log.levels.DEBUG,
                     runner = "pytest",
+                    args = { "-sx" },
                     python = ".venv/bin/python",
                 }),
             }
