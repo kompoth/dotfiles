@@ -5,7 +5,10 @@ return {
         local capabilities = require("cmp_nvim_lsp").default_capabilities()
         
         -- Enable Ruff server
-        lspconfig.ruff.setup{}
+        lspconfig.ruff.setup {}
+
+        -- Enable ty server
+        -- vim.lsp.enable("ty")
 
         -- Enable pylsp
         lspconfig.pylsp.setup {
@@ -28,8 +31,8 @@ return {
                         yapf = { enabled = false },
                         autopep8 = { enabled = false },
 
-                        -- For type checking 
-                        pylsp_mypy = {enabled = true},
+                        -- For type checking (disabled by now) 
+                        pylsp_mypy = { enabled = false },
 
                         -- My experimental plugin
                         starkiller = {
