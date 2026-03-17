@@ -10,13 +10,8 @@ vim.opt.signcolumn = "yes"
 vim.api.nvim_set_option("clipboard", "unnamed")
 
 -- Indents
-vim.opt.tabstop = 4
-vim.opt.smartindent = true
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
-vim.opt.softtabstop = 4
-
-vim.lsp.set_log_level("debug")
+vim.opt.autoindent = false
+vim.opt.smartindent = false
 
 -- Make sure to setup `mapleader` and `maplocalleader` before
 -- loading lazy.nvim so that mappings are correct.
@@ -56,8 +51,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
         -- Go to next diagnostics message
         vim.keymap.set("n", "<space>n", vim.diagnostic.goto_next, opts)
         
-        -- Format the whole buffer (in normal mode) or the selection (in visual mode) 
-        vim.keymap.set({"n", "v"}, "<space>f", vim.lsp.buf.format, opts)
+        -- Format the whole buffer
+        vim.keymap.set("n", "<space>f", vim.lsp.buf.format, opts)
 
         -- Show code actions menu
         vim.keymap.set({ "v", "n" }, "<leader>ca", require("actions-preview").code_actions)
