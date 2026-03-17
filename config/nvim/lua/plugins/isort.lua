@@ -1,0 +1,3 @@
+return {
+    "stefandtw/isort.nvim",
+}

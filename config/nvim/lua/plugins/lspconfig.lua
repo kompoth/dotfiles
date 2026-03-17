@@ -5,7 +5,7 @@ return {
         local capabilities = require("cmp_nvim_lsp").default_capabilities()
         
         -- Enable Ruff server
-        lspconfig.ruff.setup {}
+        vim.lsp.enable("ruff")
 
         -- Enable ty server
         -- vim.lsp.enable("ty")
@@ -30,6 +30,7 @@ return {
                         mccabe = { enabled = false },
                         yapf = { enabled = false },
                         autopep8 = { enabled = false },
+                        isort = { enabled = false },
 
                         -- For type checking (disabled by now) 
                         pylsp_mypy = { enabled = false },
@@ -46,5 +47,21 @@ return {
                 }
             }
         }
+        
+        lspconfig.eslint.setup{
+            settings = {
+              workingDirectory = { mode = "auto" },
+            }
+        }
+
+        lspconfig.html.setup({
+            capabilities = capabilities,
+            configurationSection = { "html", "css", "javascript" },
+            embeddedLanguages = {
+              css = true,
+              javascript = true
+            },
+            provideFormatter = true,
+        })
     end
 }
