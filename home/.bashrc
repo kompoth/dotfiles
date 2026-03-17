@@ -199,3 +199,12 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 eval "$(register-python-argcomplete pipx)"
+
+# krew path
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
+alias loadenv='set -a; source .env; set +a'
+
+if [ -f ~/.secrets ]; then
+    source ~/.secrets
+fi
